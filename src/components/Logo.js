@@ -1,7 +1,7 @@
 const Logo = () => {
     return(
         <div>
-            LOGO
+            LOGO EVE GDA
         </div>
     )
 }
