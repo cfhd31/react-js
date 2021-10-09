@@ -21,7 +21,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          very dificult
+          very dificult.....
         </a>
       </header>
     </div>
