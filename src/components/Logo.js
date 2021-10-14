@@ -1,3 +1,12 @@
+
+export const NombreLogo= () => {
+    return(
+        <div>
+            Nombre del logo
+        </div>
+    )
+}
+
 const Logo = () => {
     return(
         <div>
