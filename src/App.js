@@ -11,7 +11,6 @@ function App() {
       <Logo />
       <NombreLogo />
       <NavBar />                                                {/*llamo a la barra de menu */}
-      
       <Productos />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

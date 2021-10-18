@@ -4,7 +4,7 @@ const NavBar = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light sticky-top menu menu--fondo ">       
         <div className="header__centrado">        
-        <img src='asset/image/eve0.png' />
+        <img src='../assets/imagen/eve0.png' />
             {/* <a href=".."><img alt="Logo" src="../img/eve0.png"  title="Logo" className=" imagenLogo2"></a> */}
         </div>
         
