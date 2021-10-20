@@ -7562,7 +7562,9 @@ nav {
     padding: 0.3rem 0.5rem; }
 
 .menu--fondo {
-  background-color: #ffffff; }
+  background-color: #ffffff; 
+  justify-content: space-between;
+}
 
 .menu--Centrado {
   text-align: center; }

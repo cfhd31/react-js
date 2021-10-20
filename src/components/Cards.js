@@ -1,10 +1,48 @@
 import React from 'react'
-import Card from './components/Card'
+import Card from './Card'
+import './cards.css';
 
-export default function Cards() {
+const naves =[
+    {
+        id: 1,
+        nave: "Vindicator",
+        precio: "5.3B",
+        imagen: '../../assets/imagen/acorazado3.jpg',
+    },
+    {
+        id: 2,
+        nave: "Rattlesnake",
+        precio: "4.3B",
+        imagen: '../assets/imagen/acorazado1.jpg',
+    },
+    {
+        id: 3,
+        nave: "Bhaalgorn",
+        precio: "6.3B",
+        imagen: '../../assets/imagen/acorazado2.jpg',
+    },
+    {
+        id: 4,
+        nave: "Machariel",
+        precio: "3.3B",
+        imagen: '../../assets/imagen/acorazado3.jpg',
+    },
+]
+function Cards() {
     return (
-        <div>
-            <Card/>
+        <div className="container d-flex justify-content-center  h-100 align-items-center">
+            <div className="row">
+                {
+                    naves.map(nave => (
+                        <div className="col-md-3" key={nave.id}>
+                            <Card nave={nave.nave} precio={nave.precio} imagenes={nave.imagen}/>
+                        </div>
+                    ))
+                }
+            </div>  
         </div>
     )
 }
+
+export default Cards
+

@@ -1,14 +1,18 @@
 import React from 'react'
-import imagen1 from  '../assets/imagen/eve.png'
-function Card() {
+
+
+
+function Card({nave, precio, imagenes}) {
     return (
-        <div className="card">
-            <img src={imagen1} alt=""/>
-            <div className="card-body">
-                <h4 className="card-title"> Titulo de la Tarjeta </h4>
-                <p className="card-text text-secundary"> texto de la tarjeta</p>
+        <div className="card text-center bg-dark">
+            <img src={imagenes} className=" imagenLogo2" />
+            <div className="card-body text-light">
+                <h6 className="card-title">Nave: {nave}</h6>
+                <p className="card-text text-secundary">Precio: {precio}</p>
+                <a href="##"className="btn btn-outline-secondary ">
+                    Comprar
+                </a>
             </div>
-            
         </div>
     )
 }

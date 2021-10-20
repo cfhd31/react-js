@@ -1,26 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+
 import NavBar from './components/NavBar';
-import Logo, { NombreLogo } from './components/Logo';
+import Publicidad, { NombreLogo } from './components/Publicidad';
 import Productos from './components/Productos';
+import Cards from './components/Cards';
+
 
 
 function App() {
   return (
     <div className="App">
-      <Logo />
+      <Publicidad />
       <NombreLogo />
       <NavBar />                                                {/*llamo a la barra de menu */}
       <Productos />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-           <code>src/App.js</code> abrir npm start :D
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          very dificult.....
-        </a>
-      </header>
+      <div className="">
+        <Cards/>
+      </div>
+
     </div>
   );
 }
