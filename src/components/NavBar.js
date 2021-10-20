@@ -1,3 +1,5 @@
+import Card from './Card'
+
 const NavBar = () => {
     return(
         <header>
@@ -33,6 +35,12 @@ const NavBar = () => {
                             </li>
                         </ul>
                         <a href="..."><img src='../assets/imagen/carrito.png' className=" imagenLogo2" /></a>
+
+                        <div className=""> 
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="" id="cartCount"> { /*countCards quiero llamar al contadorCards de Card */ } </span>
+                        </div> 
+
                     </div>
                 </nav>
             </div>

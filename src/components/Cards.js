@@ -6,7 +6,7 @@ const naves =[
     {
         id: 1,
         nave: "Vindicator",
-        precio: "5.3B",
+        precio: "5B",
         imagen: '../../assets/imagen/acorazado3.jpg',
     },
     {
@@ -28,6 +28,7 @@ const naves =[
         imagen: '../../assets/imagen/acorazado3.jpg',
     },
 ]
+
 function Cards() {
     return (
         <div className="container d-flex justify-content-center  h-100 align-items-center">

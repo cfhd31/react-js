@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
-
+import './card.css';
 
 
 function Card({nave, precio, imagenes}) {
     var stock = 15
     const [count, setCount] = useState(1);
+    const [countCards, setCountCards] = useState(1);
   
     const aumentarContador = () => {
       if(count < stock){
@@ -18,6 +19,16 @@ function Card({nave, precio, imagenes}) {
       }
     };
 
+    const agregaCarrito = () => {
+        //a desarrollar
+        contadorCards()
+      };
+
+    const contadorCards = () => {
+        setCountCards(countCards + 1);
+       
+    };
+
     return (
         <div className="card text-center bg-dark">
             <img src={imagenes} className=" imagenLogo2" />
@@ -26,12 +37,11 @@ function Card({nave, precio, imagenes}) {
                 <p className="card-text text-secundary">Precio: {precio}</p>
                 
                 <div className="conteiner cantidad justify-content-center d-flex ">
-                    
                     <button onClick={ disminuyeContador }>-</button>
                     <h6>{ count }</h6>
                     <button onClick={ aumentarContador }>+</button>
                 </div>
-                <a href="##"className="btn btn-outline-secondary ">
+                <a href="##"className="btn btn-outline-secondary" onClick={ agregaCarrito }>
                     Agregar al carrito
                 </a>
             </div>
