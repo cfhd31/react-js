@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import './card.css';
 
 
@@ -20,13 +21,12 @@ function Card({nave, precio, imagenes}) {
     };
 
     const agregaCarrito = () => {
-        //a desarrollar
+        console.log ("Se agrego " + count + " " + nave + " al carrito")
         contadorCards()
       };
 
     const contadorCards = () => {
         setCountCards(countCards + 1);
-       
     };
 
     return (
@@ -47,6 +47,7 @@ function Card({nave, precio, imagenes}) {
             </div>
         </div>
     )
+    
 }
 
 export default Card

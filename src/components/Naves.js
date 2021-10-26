@@ -1,4 +1,5 @@
 //Objetos
+
 class Producto {
     constructor(nave, precio, id, img) {
       this.nave = nave;
@@ -105,3 +106,4 @@ class Producto {
   
   productos.push(fragata1, fragata2, fragata3, fragata4, fragata5, crucero1, crucero2, crucero3, crucero4, crucero5, acorazado1, acorazado2, acorazado3, acorazado4, acorazado5);
   
+

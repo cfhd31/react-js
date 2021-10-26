@@ -37,8 +37,8 @@ const NavBar = () => {
                         <a href="..."><img src='../assets/imagen/carrito.png' className=" imagenLogo2" /></a>
 
                         <div className=""> 
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="" id="cartCount"> { /*countCards quiero llamar al contadorCards de Card */ } </span>
+                            <i className="fas fa-shopping-cart"></i>
+                            <span className="" id="cartCount"> { /*countCards quiero llamar al contadorCards de Card */ } </span>
                         </div> 
 
                     </div>
