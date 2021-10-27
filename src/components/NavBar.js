@@ -35,7 +35,7 @@ const NavBar = () => {
                                 <a href="..." className="menuMin"> ACORAZADOS</a>
                             </li>
                         </ul>
-                        <a href="..."><img src='../assets/imagen/carrito.png' className=" imagenLogo2" /></a>
+                        
 
                         <CartWidget />
 
