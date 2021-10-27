@@ -4,7 +4,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Publicidad, { NombreLogo } from './components/Publicidad';
 import Productos from './components/Productos';
-import Cards from './components/Cards';
+import CardList from './components/CardListContainer/CardList/CardList';
 
 
 
@@ -16,7 +16,7 @@ function App() {
       <NavBar />                                                {/*llamo a la barra de menu */}
       <Productos />
       <div className="">
-        <Cards/>
+        <CardList/>
       </div>
 
     </div>

@@ -1,4 +1,4 @@
-import Card from './Card'
+import Card from './CardListContainer/CardList/Card/Card'
 import { CartWidget } from './Cartwidget'
 
 const NavBar = () => {

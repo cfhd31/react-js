@@ -1,6 +1,6 @@
 import React from 'react'
-import Card from './Card'
-import './cards.css';
+import Card from './Card/Card'
+import './cardList.css';
 
 const naves =[
     {
