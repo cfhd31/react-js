@@ -1,4 +1,4 @@
-import Card from './CardListContainer/CardList/Card/Card'
+import {Link} from 'react-router-dom'
 import { CartWidget } from './Cartwidget'
 
 const NavBar = () => {

@@ -1,11 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-
 import NavBar from './components/NavBar';
 import Publicidad, { NombreLogo } from './components/Publicidad';
-import Productos from './components/Productos';
-import CardList from './components/CardListContainer/CardList/CardList';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemListContainer from './components/Card/ItemListContainer';
+import { navesList } from './services/GetFetch';
 
 
 function App() {
@@ -13,10 +11,20 @@ function App() {
     <div className="App">
       <Publicidad />
       <NombreLogo />
-      <NavBar />                                                {/*llamo a la barra de menu */}
-      <Productos />
-      <div className="">
-        <CardList/>
+      <NavBar />         
+      
+      <div className="row align-items-start">
+        
+        {navesList.map( nave => (
+          <ItemListContainer
+          key={nave.id}
+          nombre={nave.nombre}
+          precio={nave.precio}
+          tipo={nave.tipo}
+          imagen={nave.imagen}
+          stock={nave.stock}
+          />
+        ))}
       </div>
 
     </div>
