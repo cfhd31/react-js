@@ -13,7 +13,7 @@ const Item = ({prod}) => {
                     <p className="text-secundary">Precio: {prod.precio}</p>
                 
                     <Link to={`/detalle/${prod.id}`} className="text-primary">
-                        <p>Ver detalle de la nave.....</p>
+                        <p>Ver detalle de la nave...</p>
                     </Link>
                     <div>
                         <ItemCount stock={prod.stock} nombre={prod.nombre}/>

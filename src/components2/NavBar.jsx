@@ -1,5 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import { CartWidget } from '../components/Cartwidget'
+import '../main.css'
+
 export const NavBar = () => {   
     return(
         <header>
@@ -16,22 +18,22 @@ export const NavBar = () => {
                 <div className="collapse navbar-collapse  menu--fondo " id="collapse_target">
                     <ul className="navbar-nav">
                         <li className="nav-item menuEspacio">
-                        <Link to='/' className="menuMin"> INICIO</Link>
+                            <Link to='/' className="menuMin"> INICIO</Link>
                         </li>
                         <li className="nav-item menuEspacio">
-                        <Link to='/categoria/Fragata' className="menuMin"> FRAGATAS</Link>
+                            <Link to='/categoria/Fragata' className="menuMin"> FRAGATAS</Link>
                         </li>
                         <li className="nav-item menuEspacio">
-                        <Link to='/categoria/Destructor' className="menuMin"> DESTRUCTORES</Link>
+                            <Link to='/categoria/Destructor' className="menuMin"> DESTRUCTORES</Link>
                         </li>
                         <li className="nav-item menuEspacio">
-                        <Link to='/categoria/Crucero' className="menuMin"> CRUCEROS</Link>
+                            <Link to='/categoria/Crucero' className="menuMin"> CRUCEROS</Link>
                         </li>
                         <li className="nav-item menuEspacio">
-                        <Link to='/categoria/C. de Batalla' className="menuMin"> C. DE BATALLA</Link>
+                            <Link to='/categoria/C. de Batalla' className="menuMin"> C. DE BATALLA</Link>
                         </li>
                         <li className="nav-item menuEspacio">
-                        <Link to='/categoria/Acorazado' className="menuMin"> ACORAZADOS</Link>
+                            <Link to='/categoria/Acorazado' className="menuMin"> ACORAZADOS</Link>
                         </li>
                     </ul>
                     

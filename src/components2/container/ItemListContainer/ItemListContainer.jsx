@@ -33,7 +33,7 @@ const ItemListContainer = () => {
 
 
     return (
-        <div className=" ">
+        <div className=" container">
             <div className="acomodar row justify-content-md-center">            
                 <ItemList product={product} />  
             </div>
