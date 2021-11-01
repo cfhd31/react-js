@@ -22,7 +22,7 @@ export default function ItemCount({initial, stock, onAdd, nombre}) {
     };
 
     const agregarCarrito = () => {    
-        alert("Se agregó " + count + " " + onAdd)    
+        alert("Se agregó " + count + " " + nombre)    
     }
 
     return (
