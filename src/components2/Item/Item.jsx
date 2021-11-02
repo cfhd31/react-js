@@ -16,7 +16,7 @@ const Item = ({prod}) => {
                         <p>Ver detalle de la nave...</p>
                     </Link>
                     <div>
-                        <ItemCount stock={prod.stock} nombre={prod.nombre}/>
+                        <ItemCount stock={prod.stock} nombre={prod.nombre} initial="1" />
                     </div>
                 </div>
             </div>

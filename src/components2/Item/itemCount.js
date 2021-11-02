@@ -21,7 +21,7 @@ export default function ItemCount({}) {
         console.log(count)
     };
 
-    const agregarCarrito = () => {    
+    const agregarCarrito = (count) => {    
         alert("Se agregó " + count + " " + nombre)    
     }
 
@@ -32,7 +32,7 @@ export default function ItemCount({}) {
                 <h6 className="">{ count }</h6>
                 <button onClick={ aumentarContador }> + </button>
             </div>
-            <a href="##"className="btn btn-outline-secondary" onClick={ agregarCarrito }>
+            <a href="##"className="btn btn-outline-secondary" onClick={ agregarCarrito(count) }>
                 Agregar al carrito
             </a>
         </div>
