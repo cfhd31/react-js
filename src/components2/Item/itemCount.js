@@ -2,15 +2,14 @@ import React from 'react'
 import { useState } from 'react';
 import { navesList } from '../../services/GetFetch';
 
-export default function ItemCount({}) {
+export default function ItemCount({onAdd, stock}) {
     const [count, setCount] = useState(1);
-    stock
-
+    
     const aumentarContador = () => {
-        if (count < prod.stock){
+        if (count < stock){
             setCount(count + 1)
         }
-     console.log(prod.stock)
+     console.log(stock)
     };
     
     const disminuyeContador = () => {
@@ -21,10 +20,6 @@ export default function ItemCount({}) {
         console.log(count)
     };
 
-    const agregarCarrito = (count) => {    
-        alert("Se agregó " + count + " " + nombre)    
-    }
-
     return (
         <div>
             <div className="  ">
@@ -32,9 +27,10 @@ export default function ItemCount({}) {
                 <h6 className="">{ count }</h6>
                 <button onClick={ aumentarContador }> + </button>
             </div>
-            <a href="##"className="btn btn-outline-secondary" onClick={ agregarCarrito(count) }>
+            <a href="##"className="btn btn-outline-secondary" onClick={()=>onAdd(count)}>
                 Agregar al carrito
             </a>
+
         </div>
     )
 }

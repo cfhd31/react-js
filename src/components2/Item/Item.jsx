@@ -1,8 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import ItemCount from '../../components/Card/ItemCount'
+import ItemCount from '../../components2/Item/itemCount'
 import './item.css'
 const Item = ({prod}) => {
+
+
+    const onAdd = (count) => {
+        console.log("Se agregó " + count + " " + prod.nombre)
+      }
+    
     return (
         <div className="col-md-3 col-sm-4 col-xs-6" >
             <div className="card bg-dark text-center espacioAbajo ">
@@ -16,7 +22,7 @@ const Item = ({prod}) => {
                         <p>Ver detalle de la nave...</p>
                     </Link>
                     <div>
-                        <ItemCount stock={prod.stock} nombre={prod.nombre} initial="1" />
+                        <ItemCount  initial="1" stock={prod.stock} onAdd={onAdd}/>
                     </div>
                 </div>
             </div>
