@@ -1,16 +1,19 @@
 import {BrowserRouter , Switch, Route} from 'react-router-dom'
-import ItemListContainer from "./components2/container/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./components2/container/ItemDetailContainer/ItemDetailContainer";
-import { NavBar } from './components2/NavBar';
-import Cart from './components2/Cart/Cart';
+import ItemListContainer from "./components/container/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/container/ItemDetailContainer/ItemDetailContainer";
+import { NavBar } from './components/NavBar';
+import Cart from './components/Cart/Cart';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-const App2 = () => {   
+import Publicidad from './components/publicidad/Publicidad';
+const App = () => {   
   
     return (        
         <div className="App"  >
             <BrowserRouter>
+                <Publicidad/>
                 <NavBar />
+                
                 <Switch>
                     <Route exact path='/'>
                         <ItemListContainer  /> 
@@ -24,4 +27,4 @@ const App2 = () => {
     )
 }
 
-export default App2;
+export default App;

@@ -3,3 +3,8 @@
     margin: 10px;
     padding-top: 5px;
 }
+
+.contador{
+display: flex;
+    justify-content: space-evenly;
+}

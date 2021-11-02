@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { navesList } from '../../services/GetFetch';
+import './item.css'
 
 export default function ItemCount({onAdd, stock}) {
     const [count, setCount] = useState(1);
@@ -15,14 +16,13 @@ export default function ItemCount({onAdd, stock}) {
     const disminuyeContador = () => {
         if(count > 1){
           setCount(count - 1);
-          
         }
         console.log(count)
     };
 
     return (
         <div>
-            <div className="  ">
+            <div className=" text-center  contador">
                 <button onClick={ disminuyeContador }> - </button>
                 <h6 className="">{ count }</h6>
                 <button onClick={ aumentarContador }> + </button>

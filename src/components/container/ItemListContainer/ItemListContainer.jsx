@@ -30,9 +30,6 @@ const ItemListContainer = () => {
         }
     },[id]) 
       
-    
-
-
     return (
         <div className=" container">
             <div className="acomodar row justify-content-md-center">            

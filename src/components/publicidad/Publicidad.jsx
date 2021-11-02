@@ -1,12 +1,9 @@
 import React from 'react'
 
-function ListaCarrito() {
+export default function Publicidad() {
     return (
         <div>
-
+            
         </div>
     )
 }
-
-export default ListaCarrito
-
