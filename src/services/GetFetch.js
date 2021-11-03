@@ -1,17 +1,17 @@
 export const navesList =[
-    { id: 1,  nombre: "Rattlesnake", precio: " 4.500.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/0/0f/Rattlesnake.jpg/256px-Rattlesnake.jpg', stock: 7},
-    { id: 2,  nombre: "Machariel",   precio: " 3.800.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/1/14/Machariel.jpg/256px-Machariel.jpg', stock: 7},
-    { id: 3,  nombre: "Bhaalgorn",   precio: " 4.900.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/e/ec/Bhaalgorn.jpg/256px-Bhaalgorn.jpg', stock: 7},
-    { id: 4,  nombre: "Nestor",      precio: "21.900.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/7/70/Nestor.jpg/256px-Nestor.jpg', stock: 7},
-    { id: 5,  nombre: "Barghest",    precio: "23.000.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/b/bb/Barghest.jpg/256px-Barghest.jpg', stock: 7},
-    { id: 6,  nombre: "Nightmare",   precio: " 5.000.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/3/38/Nightmare.jpg/256px-Nightmare.jpg', stock: 7},
-    { id: 7,  nombre: "Vindicator",  precio: " 4.600.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/4/49/Vindicator.jpg/256px-Vindicator.jpg', stock: 7},
-    { id: 8,  nombre: "Apocalypse Strike", precio: "1.900.000.000", tipo:"Acorazado",imagen: 'https://wiki.eveuniversity.org/images/thumb/1/13/Apocalypse.jpg/256px-Apocalypse.jpg', stock: 7},
-    { id: 9,  nombre: "Vexor",       precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado3.jpg', stock: 7},
-    { id: 10, nombre: "Rattlesnake", precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado1.jpg', stock: 7},
-    { id: 11, nombre: "Bhaalgorn",   precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado2.jpg', stock: 7},
-    { id: 12, nombre: "Machariel",   precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado3.jpg', stock: 7},
-    { id: 13, nombre: "Vindicator",  precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado3.jpg', stock: 7},
+    { id: 1,  nombre: "Rattlesnake", precio: " 4.500.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/0/0f/Rattlesnake.jpg/256px-Rattlesnake.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 2,  nombre: "Machariel",   precio: " 3.800.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/1/14/Machariel.jpg/256px-Machariel.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 3,  nombre: "Bhaalgorn",   precio: " 4.900.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/e/ec/Bhaalgorn.jpg/256px-Bhaalgorn.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 4,  nombre: "Nestor",      precio: "21.900.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/7/70/Nestor.jpg/256px-Nestor.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 5,  nombre: "Barghest",    precio: "23.000.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/b/bb/Barghest.jpg/256px-Barghest.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 6,  nombre: "Nightmare",   precio: " 5.000.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/3/38/Nightmare.jpg/256px-Nightmare.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 7,  nombre: "Vindicator",  precio: " 4.600.000.000", tipo:"Acorazado",     imagen: 'https://wiki.eveuniversity.org/images/thumb/4/49/Vindicator.jpg/256px-Vindicator.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 8,  nombre: "Apocalypse Strike", precio: "1.900.000.000", tipo:"Acorazado",imagen: 'https://wiki.eveuniversity.org/images/thumb/1/13/Apocalypse.jpg/256px-Apocalypse.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 9,  nombre: "Vexor",       precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado3.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 10, nombre: "Rattlesnake", precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado1.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 11, nombre: "Bhaalgorn",   precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado2.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 12, nombre: "Machariel",   precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado3.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
+    { id: 13, nombre: "Vindicator",  precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado3.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
     { id: 14, nombre: "Rattlesnake", precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado1.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
     { id: 15, nombre: "Bhaalgorn",   precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado2.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
     { id: 16, nombre: "Machariel",   precio: "100000000", tipo:"Crucero",       imagen: '../../assets/imagen/acorazado3.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
@@ -45,11 +45,11 @@ const unaNave = { id: 1,  nombre: "UnicoObjetoDePrueba",  precio: "5B",   tipo:"
 
 
 export const getFetchNaves = new Promise((resolve, reject)=>{
-    setTimeout(()=>{ resolve(navesList) }, 1000)
+    setTimeout(()=>{ resolve(navesList) }, 4000)
 })
 
 export const getFetchUnaNave = new Promise((resolve, reject)=>{
-    setTimeout(()=>{ resolve(unaNave) }, 1000)
+    setTimeout(()=>{ resolve(navesList) }, 4000)
 })
 
 

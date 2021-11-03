@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react';
-import { navesList } from '../../services/GetFetch';
 import './item.css'
 
 export default function ItemCount({onAdd, stock}) {

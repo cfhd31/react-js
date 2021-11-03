@@ -31,6 +31,7 @@ const ItemListContainer = () => {
     },[id]) 
       
     return (
+        loading? <h5>Cargando los productos..</h5> :
         <div className=" container">
             <div className="acomodar row justify-content-md-center">            
                 <ItemList product={product} />  

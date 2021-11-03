@@ -8,12 +8,9 @@ export const CartWidget = ({ }) => {
     
     <div className=""> 
       <Link to={`/cart/ `} >
-        <a href="..."><img src='../assets/imagen/carrito.png' className=" imagenLogo2" /></a>
-        <i className="fas fa-shopping-cart"></i>
-        
-         
+          <a href="..."><img src='../assets/imagen/carrito.png' className=" imagenLogo2" /></a>
+          <i className="fas fa-shopping-cart"></i>
        </Link>
-        <span> {  } </span>
     </div> 
   )
 }
