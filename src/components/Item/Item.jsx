@@ -1,11 +1,12 @@
 import React from 'react'
+import { useState } from 'react'
 import {Link} from 'react-router-dom'
 import ItemCount from '../../components/Item/itemCount'
 import './item.css'
 const Item = ({prod}) => {
 
-
     const onAdd = (count) => {
+
         console.log("Se agregó " + count + " " + prod.nombre)
       }
     

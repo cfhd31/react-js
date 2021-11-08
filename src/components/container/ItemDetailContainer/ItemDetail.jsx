@@ -1,11 +1,17 @@
 import React from 'react'
+import { useState } from 'react'
 import {Link} from 'react-router-dom'
+import { useCartContext } from '../../../context/CartContext'
 import ItemCount from '../../Item/itemCount'
 import './itemDetail.css'
 
 const ItemDetail = ({prod}) => {
-    
+    const[count, setCount] = useState(0)
+    /*const { cartList, mostrarListado, agregarAlCarrito} = useCartContext()*/
+
+    const [inputType, setInputType] = useState('input')
       const onAdd = (count) => {
+        setInputType('button')
         alert("Se agregó " + count + ' ' + prod.nombre)
       }
 
