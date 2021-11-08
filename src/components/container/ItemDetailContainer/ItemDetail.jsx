@@ -15,6 +15,16 @@ const ItemDetail = ({prod}) => {
         alert("Se agregó " + count + ' ' + prod.nombre)
       }
 
+      const InputCount= ()=> {
+
+        return <button className="btn btn-outline-primary"  onClick={()=>alert('yendo al cart')}>Terminar compra</button>
+    }
+    
+    const ButtonCount= ()=> {
+        return <button className="btn btn-outline-primary" onClick={()=>console.log('Producto agregado')}>Agregar Al carrito</button>
+    
+    }
+    
     return (
         /*<div className="col s12 m12 l12 flex" key={prod.id}>
             <div className="card ">
@@ -58,14 +68,23 @@ const ItemDetail = ({prod}) => {
                 <p>{prod.descripcion}</p>
             </div>
             <div>
-                <div className="text-light">
+                {/* <div className="text-light">
                     <ItemCount stock={prod.stock} initial="1" onAdd={onAdd}/>
-                </div>
+                </div> 
                 <Link to={`/`} className="text-primary">
                     <button className="btn btn-outline-primary btn-block">
                         Volver
                     </button>
-                </Link>
+                </Link>*/}
+                <div onClick={()=>onAdd}>
+                    {
+                        inputType === 'input'?
+                        <ItemCount stock={prod.stock} initial="1" onAdd={onAdd}/>
+                        :
+                        <Link to="/cart" className="pretext comprar">Ir a Carrito</Link>  
+                    }
+                </div>
+
             </div>
         </div>
     )
