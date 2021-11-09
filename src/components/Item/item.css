@@ -5,6 +5,11 @@
 }
 
 .contador{
-display: flex;
-    justify-content: space-evenly;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #212529;
+    background-color: #f9fafb;
+    margin-left: 20%;
+    margin-right: 20%;
 }

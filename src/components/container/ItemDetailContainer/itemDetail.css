@@ -50,7 +50,7 @@
     cursor: pointer;
 }
 
-.comprar {
+.botonComprar {
 
     background-color: blue;
 }
@@ -64,25 +64,17 @@
     margin: 100px;
 }
 
-.minus,
-.plus {
-    width: 20px;
-    background: #f2f2f2;
-    border-radius: 4px;
-    padding: 8px 5px 8px 5px;
-    border: 1px solid #ddd;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-}
 
-.number-input {
-    height: 34px;
-    width: 100px;
-    text-align: center;
-    font-size: 26px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    display: inline-block;
-    vertical-align: middle;
+
+.card{
+    padding-bottom: 20px;
+}
+.contador{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #212529;
+    background-color: #f9fafb;
+    margin-left: 30%;
+    margin-right: 30%;
 }
