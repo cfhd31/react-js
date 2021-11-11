@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { getFetchNaves } from '../../../services/GetFetch'
+import { getFirestore } from '../../../services/getFirestore'
 import ItemList from '../../ItemList/ItemList'
 import './itemListContainer.css'
 
@@ -11,6 +12,11 @@ const ItemListContainer = () => {
     const { id } = useParams()
 
     useEffect(() => {
+        /*const db = getFirestore()
+        const dbQuery = db.collection('items').get()
+        dbQuery
+        .then(resp =>console.log(resp)) */
+
         if (id) {
             getFetchNaves
             .then( res => {        

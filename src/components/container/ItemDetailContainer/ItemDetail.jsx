@@ -6,47 +6,24 @@ import ItemCount from '../../Item/itemCount'
 import './itemDetail.css'
 
 const ItemDetail = ({prod}) => {
-    const[count, setCount] = useState(0)
-    /*const { cartList, mostrarListado, agregarAlCarrito} = useCartContext()*/
-
+    
+    const[ count, setCount] = useState(0)
     const [inputType, setInputType] = useState('input')
-      const onAdd = (count) => {
+    const { cartList, mostrarListado, agregarAlCarrito} = useCartContext()
+    
+    console.log(cartList);
+    console.log(mostrarListado);
+
+    
+
+    const onAdd = (count) => {
         setInputType('button')
         alert("Se agregó " + count + ' ' + prod.nombre)
-      }
+        agregarAlCarrito({prod, cantidad: count})
+    }
 
     
     return (
-
-        // <div className="card text-center bg-dark col-md-6 container-fluid " >
-        //     <h4 className="card-title text-danger font-weight-bold ">{prod.tipo}</h4>
-        //     <img src={prod.imagen} className=" imagenLogo2" />
-        //     <div className="card-body text-light">
-        //         <h5 className="card-title">Nave: {prod.nombre}</h5>
-        //         <p className="card-text text-secundary">Precio: {prod.precio} ISK</p>
-        //     </div>
-        //     <div className="text-light">
-        //         <p>{prod.descripcion}</p>
-        //     </div>
-        //     <div>
-        //         {/* <div className="text-light">
-        //             <ItemCount stock={prod.stock} initial="1" onAdd={onAdd}/>
-        //         </div> 
-        //         <Link to={`/`} className="text-primary">
-        //             <button className="btn btn-outline-primary btn-block">
-        //                 Volver
-        //             </button>
-        //         </Link>*/}
-        //         <div onClick={()=>onAdd}>
-        //             {
-        //                 inputType === 'input'?
-        //                 <ItemCount stock={prod.stock} initial="1" onAdd={onAdd}/>
-        //                 :
-        //                 <Link to="/cart" className="pretext botonComprar">Ir al Carrito</Link>  
-        //             }
-        //         </div>
-        //     </div>
-        // </div>
         <div>
             <div className="react-reveal card-detalle efecto bg-dark text-light" >
             <h4 className="card-title text-danger font-weight-bold ">{prod.tipo}</h4>

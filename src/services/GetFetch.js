@@ -51,9 +51,6 @@ export const navesList =[
     { id: 50, nombre: "Harbinger",   precio: "250", tipo:"C. de Batalla", imagen: '../../assets/imagen/acorazado3.jpg', stock: 7, descripcion: "es una nave de rapida y versatil, perfecta para las fratas y naves capitales"},
 ]
 
-const unaNave = { id: 1,  nombre: "UnicoObjetoDePrueba",  precio: "5B",   tipo:"Acorazado", imagen: '../../assets/imagen/acorazado3.jpg', stock: 7, descripcion: "Una nave pesada, con gran poder de fuego, ideal contra estructuras" }
-
-
 export const getFetchNaves = new Promise((resolve, reject)=>{
     setTimeout(()=>{ resolve(navesList) }, 4000)
 })
@@ -61,6 +58,5 @@ export const getFetchNaves = new Promise((resolve, reject)=>{
 export const getFetchUnaNave = new Promise((resolve, reject)=>{
     setTimeout(()=>{ resolve(navesList) }, 4000)
 })
-
 
 
