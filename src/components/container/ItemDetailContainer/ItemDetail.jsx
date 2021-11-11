@@ -7,7 +7,7 @@ import './itemDetail.css'
 
 const ItemDetail = ({prod}) => {
     
-    const[ count, setCount] = useState(0)
+    //const[ count, setCount] = useState(1)
     const [inputType, setInputType] = useState('input')
     const { cartList, mostrarListado, agregarAlCarrito} = useCartContext()
     
@@ -17,8 +17,9 @@ const ItemDetail = ({prod}) => {
     
 
     const onAdd = (count) => {
+        //alert("Se agregó " + count + ' ' + prod.nombre)
         setInputType('button')
-        alert("Se agregó " + count + ' ' + prod.nombre)
+        setCount(count)
         agregarAlCarrito({prod, cantidad: count})
     }
 
