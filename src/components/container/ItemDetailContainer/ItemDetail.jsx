@@ -7,7 +7,7 @@ import './itemDetail.css'
 
 const ItemDetail = ({prod}) => {
     
-    //const[ count, setCount] = useState(1)
+    const[ count, setCount] = useState(1)
     const [inputType, setInputType] = useState('input')
     const { cartList, mostrarListado, agregarAlCarrito} = useCartContext()
     

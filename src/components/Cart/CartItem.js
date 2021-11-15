@@ -1,24 +1,29 @@
 import React from 'react'
+import { useCartContext } from '../../context/CartContext'
 
 export default function CartItem(prodCart) {
+    const {cartList, borrarItem} = useCartContext()
     console.log(prodCart)
     return (
-        <div>
-            <tr>
-                <td>
-                    <img src={prodCart.productos.prod.imagen} alt={prodCart.productos.prod.tipo}/>
-                </td>
+        
+        <tr>
+            <td>
+                <img src={prodCart.productos.prod.imagen} alt={prodCart.productos.prod.tipo}/>
+            </td>
 
-                <td>
-                    <span>{`${prodCart.productos.prod.nombre}`}</span>
-                </td>
-                <td>
-                     <p>{prodCart.productos.prod.precio}</p>
-                </td>
-                <td>
-                    <p>x{prodCart.productos.cantidad}</p>
-                </td>
-            </tr>
-        </div>
+            <td>
+                <span>{`${prodCart.productos.prod.nombre}`}</span>
+            </td>
+            <td>
+                <p>{prodCart.productos.prod.precio}M ISK</p>
+            </td>
+            <td>
+                <p>x{prodCart.productos.cantidad}</p>
+            </td>
+            <td>
+                <button onClick= {() => borrarItem(prodCart.productos.prod.id)}>Eliminar</button>
+            </td>
+        </tr>
+        
     )
 }

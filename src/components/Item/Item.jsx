@@ -3,14 +3,22 @@ import { useState } from 'react'
 
 import {Link} from 'react-router-dom'
 import ItemCount from '../../components/Item/itemCount'
+import { useCartContext } from '../../context/CartContext'
 import './item.css'
 const Item = ({prod}) => {
+    const[ count, setCount] = useState(1)
+    const [inputType, setInputType] = useState('input')
+    const { cartList, mostrarListado, agregarAlCarrito} = useCartContext()
+
+    console.log(cartList);
+    console.log(mostrarListado);
 
     const onAdd = (count) => {
-
-        alert("Se agregó " + count + " " + prod.nombre)
-        
-      }
+        //alert("Se agregó " + count + ' ' + prod.nombre)
+        setInputType('button')
+        setCount(count)
+        agregarAlCarrito({prod, cantidad: count})
+    }
     
     return (
         <div className="catalogo">
@@ -25,7 +33,15 @@ const Item = ({prod}) => {
                             <p>Ver detalle de la nave...</p>
                         </Link>
                         <div>
-                            <ItemCount  initial="1" stock={prod.stock} onAdd={onAdd}/>
+                            {/* <ItemCount  initial="1" stock={prod.stock} onAdd={onAdd}/> */}
+                            <div onClick={()=>onAdd}>
+                                {
+                                inputType === 'input'?
+                                <ItemCount stock={prod.stock} initial="1" onAdd={onAdd}/>
+                                :
+                                <Link to="/cart" className="pretext botonComprar">Ir al Carrito</Link>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -11,9 +11,9 @@ export const NavBar = () => {
                     <Link to="/"><img src='../assets/imagen/eve0.png' className=" imagenLogo2" /></Link>
                 </div>
                 
-                 <button className="navbar-toggler espacio" data-toggle="collapse"  data-bs-toggle="collapse" type="button" data-bs-target="#collapse_target" aria-controls="collapse_target" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler espacio" data-toggle="collapse"  data-bs-toggle="collapse" type="button" data-bs-target="#collapse_target" aria-controls="collapse_target" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
-                </button> 
+                </button>
             
                 <div className="collapse navbar-collapse  menu--fondo " id="collapse_target">
                     <ul className="navbar-nav">
