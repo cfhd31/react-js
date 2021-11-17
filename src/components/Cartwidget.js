@@ -11,8 +11,8 @@ export const CartWidget = ({ }) => {
     
     <div className={contadorCarrito >0 ? 'mostrar':'ocultar'}> 
       <Link to="/cart" >
-          <a href="..."><img src='../assets/imagen/carrito.png' className=" imagenLogo2" />{contadorCarrito}</a>
-          {/* <span class="badge badge-warning" id={contadorCarrito}> 0 </span> */}
+          <img src='../assets/imagen/carrito.png' className=" imagenLogo2" />
+         <span className="badge">{contadorCarrito}  </span> 
           <i className="fas fa-shopping-cart"></i>
        </Link>
     </div> 

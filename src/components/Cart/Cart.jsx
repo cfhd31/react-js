@@ -24,7 +24,7 @@ const generarOrden = (e) =>{
         })
 }
 */
-
+const precioTotal = cartList.reduce((prev, next) => prev + (next.cantidad*next.prod.precio), 0)
     var condition = !cartList?.length
     if (condition !== true) {
         return (
@@ -68,11 +68,11 @@ const generarOrden = (e) =>{
                                 <td/>
                                 <td/>
                                 <td><strong>Importe total a pagar:</strong></td>
-                                <td>{PrecioTotal}M Isk</td>
+                                <td>{precioTotal}M Isk</td>
                                 <td> <button onClick= {() => borrarTodo()}>Vaciar Carrito</button></td>
                             </tr>
                         </table>
-                        <h6>Importe total a pagar: {PrecioTotal}M Isk</h6>
+                        <h6>Importe total a pagar: {precioTotal}M Isk</h6>
                         <button onClick= {() => borrarTodo()}>Vaciar Carrito</button>
                     </div>
                 </div>

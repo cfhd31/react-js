@@ -10,11 +10,10 @@ const Item = ({prod}) => {
     const [inputType, setInputType] = useState('input')
     const { cartList, mostrarListado, agregarAlCarrito} = useCartContext()
 
-    console.log(cartList);
-    console.log(mostrarListado);
+    //console.log(cartList);
+    //console.log(mostrarListado);
 
     const onAdd = (count) => {
-        //alert("Se agregó " + count + ' ' + prod.nombre)
         setInputType('button')
         setCount(count)
         agregarAlCarrito({prod, cantidad: count})
@@ -33,13 +32,12 @@ const Item = ({prod}) => {
                             <p>Ver detalle de la nave...</p>
                         </Link>
                         <div>
-                            {/* <ItemCount  initial="1" stock={prod.stock} onAdd={onAdd}/> */}
                             <div onClick={()=>onAdd}>
                                 {
-                                inputType === 'input'?
-                                <ItemCount stock={prod.stock} initial="1" onAdd={onAdd}/>
-                                :
-                                <Link to="/cart" className="pretext botonComprar">Ir al Carrito</Link>
+                                    inputType === 'input'?
+                                    <ItemCount stock={prod.stock} initial="1" onAdd={onAdd}/>
+                                    :
+                                    <Link to="/cart" className="pretext botonComprar">Ir al Carrito</Link>
                                 }
                             </div>
                         </div>
