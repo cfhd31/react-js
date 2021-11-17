@@ -1,0 +1,29 @@
+.imagen {
+    height: 5em;
+    width: 5em;
+}
+
+.contenedorTabla {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 0 auto;
+    grid-gap: 2em;
+    gap: 2em;
+}
+
+.listaCarrito {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50vw;
+    margin-left: 5em;
+
+}
+.filaTabla{
+    border: double;
+}
+.tabraTitulo{
+    border-bottom: solid;
+}
