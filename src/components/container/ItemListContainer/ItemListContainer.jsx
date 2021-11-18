@@ -12,10 +12,10 @@ const ItemListContainer = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        /*const db = getFirestore()
+        const db = getFirestore()
         const dbQuery = db.collection('items').get()
         dbQuery
-        .then(resp =>console.log(resp)) */
+        .then(resp =>console.log(resp)) 
 
         if (id) {
             getFetchNaves

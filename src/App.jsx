@@ -6,7 +6,6 @@ import Cart from './components/Cart/Cart';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Publicidad from './components/publicidad/Publicidad';
-import CartContext from './context/CartContext';
 import CartContextProvider from './context/CartContext';
 const App = () => {   
   

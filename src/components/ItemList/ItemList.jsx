@@ -3,10 +3,8 @@ import Item from '../Item/Item'
 
 function ItemList({product}) {
     
-    return (     
-                 
-        product.map(prod=> <Item key={prod.id} prod={prod} /> )   
-             
+    return (           
+        product.map(prod=> <Item key={prod.id} prod={prod} /> )          
     )
 }
 

@@ -34,7 +34,6 @@
     position: relative;
     background: #5e92f3;
     width: 100%;
-
 }
 
 .pretext {
@@ -51,7 +50,6 @@
 }
 
 .botonComprar {
-
     background-color: blue;
 }
 
@@ -59,16 +57,14 @@
     margin-top: 30px
 }
 
-
 .number {
     margin: 100px;
 }
 
-
-
 .card{
     padding-bottom: 20px;
 }
+
 .contador{
     display: flex;
     justify-content: space-between;
@@ -92,10 +88,12 @@
     gap: 1em;
     margin: 4em auto;
 }
+
 .card-body {
     flex: 1 1 auto;
     padding: 1rem;
 }
+
 .efecto{
     animation-fill-mode: both;
     animation-duration: 1000ms;

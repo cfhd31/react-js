@@ -24,7 +24,6 @@ const ItemDetailContainer = () => {
             .finally(() => setLoading(false))
         }
     }, [id])
-    /*console.log(productIndiv);*/
 
     return (loading? <h5>Cargando el producto..</h5>:
         <>
