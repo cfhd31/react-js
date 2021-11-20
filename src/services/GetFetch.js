@@ -52,11 +52,11 @@ export const navesList =[
 ]
 
 export const getFetchNaves = new Promise((resolve, reject)=>{
-    setTimeout(()=>{ resolve(navesList) }, 4000)
+    setTimeout(()=>{ resolve(navesList) }, 1000)
 })
 
 export const getFetchUnaNave = new Promise((resolve, reject)=>{
-    setTimeout(()=>{ resolve(navesList) }, 4000)
+    setTimeout(()=>{ resolve(navesList) }, 1000)
 })
 
 

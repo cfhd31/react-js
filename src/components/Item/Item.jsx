@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import ItemCount from '../../components/Item/itemCount'
 import { useCartContext } from '../../context/CartContext'
 import './item.css'
+
 const Item = ({prod}) => {
     const[ count, setCount] = useState(1)
     const [inputType, setInputType] = useState('input')
