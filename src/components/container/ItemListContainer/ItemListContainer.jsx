@@ -46,7 +46,6 @@ const ItemListContainer = () => {
     //     }
      },[id]) 
       
-     console.log (products)
     return (
         loading? <h5>Cargando los productos..</h5> :
         <div className=" container">

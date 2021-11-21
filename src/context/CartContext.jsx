@@ -20,18 +20,22 @@ export const CartContextProvider = ({children}) => {
         setContador(cartList.reduce((prev, next) => prev + next.cantidad, 0))
     }
 
+
     const borrarTodo = () => {
         setCartList([])
     }
+
 
     const borrarItem = itemId =>{
         const itemBorrar = cartList.filter(item => item.prod.id !== itemId)
         setCartList(itemBorrar)
     }
 
+
     useEffect(() => {
         setContador(cartList.reduce((prev, next) => prev + next.cantidad, 0))
     },[borrarItem])
+    
     const mostrarListado =()=>{
         console.log(cartList)
     }

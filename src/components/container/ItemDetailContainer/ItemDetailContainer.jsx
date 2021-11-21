@@ -8,14 +8,26 @@ const ItemDetailContainer = () => {
     const [productIndiv, setProdIndiv] = useState({})
     const {id} = useParams()
     const [loading, setLoading] = useState(true)
-    const [prod, setProd] = useState({})
+    //const [prod, setProd] = useState({})
 
     useEffect(() => { 
-        /*const db= getFirestore()
-           db.collection('items').doc(id).get()
-           .then(resp => setProdIndiv({id: resp.id, ...resp.data()}))  */
-
+        const db =getFirestore()
         if(id){
+            const dbQueryIndividual= db.collection('items').doc(id).get()
+            dbQueryIndividual.then((res) => {
+            setProdIndiv({id:res.id, ...res.data()})
+            })
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+        } else{
+            const dbQuery= db.collection('items').get().then((res) => {
+                dbQuery.setProdIndiv(res.data()) 
+            })
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+        }
+
+        /*if(id){
             getFetchNaves.then((res) => {
               setProdIndiv(res.find(prod => prod.id === parseInt(id)))
             })
@@ -28,7 +40,7 @@ const ItemDetailContainer = () => {
             })
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
-        }
+        }*/
     }, [id])
 
     return (loading? <h5>Cargando el producto..</h5>:

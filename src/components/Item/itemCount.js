@@ -23,9 +23,9 @@ export default function ItemCount({onAdd, stock}) {
     return (
         <div>
             <div className=" text-center">
-                <button onClick={ disminuyeContador } className="btn-danger  btnMasMenos"> - </button>
-                <span className="espacio">{ count }</span>
-                <button onClick={ aumentarContador } className="btn-success btnMasMenos"> + </button>
+                <button onClick={ disminuyeContador } className="btn-secondary btnMasMenos alert-link"> - </button>
+                <span className="espacio alert-link">{ count }</span>
+                <button onClick={ aumentarContador } className="btn-secondary btnMasMenos alert-link"> + </button>
             </div>
             <a href="##"className="btn btn-outline-primary" onClick={()=>onAdd(count)}>
                 Agregar al carrito
