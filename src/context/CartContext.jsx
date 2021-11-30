@@ -30,6 +30,10 @@ export const CartContextProvider = ({children}) => {
         const itemBorrar = cartList.filter(item => item.prod.id !== itemId)
         setCartList(itemBorrar)
     }
+    
+    const precioTotal = ()=>{
+        return( cartList.reduce((prev, next) => prev + (next.cantidad * next.prod.price), 0))
+    }
 
 
     useEffect(() => {
@@ -42,7 +46,7 @@ export const CartContextProvider = ({children}) => {
 
     return (
         <div>
-            <CartContext.Provider value={{cartList, mostrarListado, agregarAlCarrito, borrarTodo, borrarItem, contadorCarrito}}>
+            <CartContext.Provider value={{cartList, mostrarListado, agregarAlCarrito, borrarTodo, borrarItem, contadorCarrito, precioTotal}}>
             {children}
             </CartContext.Provider>
         </div>

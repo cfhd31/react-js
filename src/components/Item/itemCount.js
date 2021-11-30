@@ -10,14 +10,14 @@ export default function ItemCount({onAdd, stock}) {
         if (count < stock){
             setCount(count + 1)
         }
-     console.log(stock)
+
     };
     
     const disminuyeContador = () => {
         if(count > 1){
           setCount(count - 1);
         }
-        console.log(count)
+        
     };
 
     return (
@@ -34,3 +34,7 @@ export default function ItemCount({onAdd, stock}) {
         </div>
     )
 }
+
+
+
+

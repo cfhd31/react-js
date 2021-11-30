@@ -19,11 +19,126 @@
     justify-content: center;
     width: 50vw;
     margin-left: 5em;
-
 }
 .filaTabla{
     border: double;
 }
 .tabraTitulo{
     border-bottom: solid;
+}
+
+.formu {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative; 
+}
+.formu #contact {
+    background: #F9F9F9;
+    padding: 25px;
+    margin: 80px 0;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); 
+}
+.formu #contact h3, .formu #contact .h3 {
+    display: block;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 10px; 
+}
+.formu #contact h4, .formu #contact .h4 {
+    margin: 5px 0 15px;
+    display: block;
+    font-size: 20px;
+    font-weight: 400; 
+}
+.formu fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%; 
+}
+.formu #contact input[type="text"],
+.formu #contact input[type="email"],
+.formu #contact input[type="tel"],
+.formu #contact input[type="comentario"],
+.formu #contact textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    background: #FFF;
+    margin: 0 0 5px;
+    padding: 10px; 
+}
+.formu #contact input[type="text"]:hover,
+.formu #contact input[type="email"]:hover,
+.formu #contact input[type="tel"]:hover,
+.formu #contact input[type="comentario"]:hover,
+.formu #contact textarea:hover {
+    -webkit-transition: border-color 0.3s ease-in-out;
+    -moz-transition: border-color 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out;
+    border: 1px solid #aaa; 
+}
+.formu #contact textarea {
+    height: 100px;
+    max-width: 100%;
+    resize: none; 
+}
+.formu #contact button[type="submit"] {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #474747;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px; 
+}
+.formu #contact button[type="submit"]:hover {
+    background: #43A047;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out; 
+}
+.formu #contact button[type="submit"]:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5); 
+}
+.formu .copyright {
+    text-align: center; 
+}
+.formu #contact input:focus,
+.formu #contact textarea:focus {
+    outline: 0;
+    border: 1px solid #aaa; 
+}
+.formu ::-webkit-input-placeholder {
+    color: #888; 
+}
+.formu :-moz-placeholder {
+    color: #888; 
+}
+.formu ::-moz-placeholder {
+    color: #888; 
+}
+.formu :-ms-input-placeholder {
+    color: #888; 
+}
+
+.listaContenedor {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative; 
+}
+.Lista {
+    background: #F9F9F9;
+    padding: 25px;
+    margin: 80px 0;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); 
+}
+.listaCarrito {
+    background: #F9F9F9;
+    padding: 25px;
+    margin: 80px 0;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); 
 }
