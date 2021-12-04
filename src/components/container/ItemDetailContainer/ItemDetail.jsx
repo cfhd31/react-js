@@ -23,7 +23,7 @@ const ItemDetail = ({prod}) => {
         <div>
             <div className="react-reveal card-detalle efecto bg-dark text-light" >
             <h4 className="card-title text-danger font-weight-bold ">{prod.tipo}</h4>
-            <img src={prod.imagen} className=" card-img-top" loading="lazy" />
+            <img src={prod.imagen} className=" card-img-top img-fluid" loading="lazy" />
                 <div className="card-body">
                     <h5 className="card-title"><strong>Nave:</strong> {prod.nombre}</h5>
                     <p className="card-text"><strong>Precio:</strong> {prod.precio}M ISK</p>

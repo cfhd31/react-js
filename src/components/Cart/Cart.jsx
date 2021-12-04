@@ -9,6 +9,7 @@ import './cart.css'
 
 export default function Cart() {
     const {cartList, borrarTodo, borrarItem, } = useCartContext()
+    const [idOrder, setIdOrder] = useState('')
 
     const [formData, setFormData] = useState({nombre: '', telefono: '', email: ''})
 
@@ -16,7 +17,7 @@ export default function Cart() {
         e.preventDefault()
 
         let orden = {}
-        orden.date = firebase.firebase.Timestamp.fromDate(new Date())
+        orden.date = firebase.firestore.Timestamp.fromDate(new Date())
         .firestore
         .Timestamp
         .fromDate(new Date());
@@ -33,7 +34,7 @@ export default function Cart() {
         const dbQuery = getFirestore()
 
         dbQuery.collection('orders').add(orden) //subo al firestore la orden
-        .then(resp => console.log(resp))
+        .then(resp => setIdOrder(resp.id))
         .catch(err=> console.log(err))
         .finally(()=> setFormData({
             nombre:'',
@@ -73,50 +74,53 @@ export default function Cart() {
     var condition = !cartList?.length
     if (condition !== true) {
         return (
-            <div>
-                <div className="contenedorTabla listaContenedor" >
-                    <div className="listaCarrito">
-                        <table className="react-reveal mb-5">
-                            <tr className="tabraTitulo">
-                                <th>  Foto  </th>
-                                <th>  Nave  </th>
-                                <th>  Cantidad  </th>
-                                <th>  Precio por unidad  </th>
-                                <th>   Subtotal    </th>
-                                <th></th>
-                            </tr>
-                            {cartList.map(prodCart => <CartItem key={prodCart.prod.id} productos={prodCart}/>)}
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><strong>Importe total a pagar:</strong></td>
-                                <td>${precioTotal}M Isk</td>
-                                <td> <button onClick= {() => borrarTodo()}>Vaciar Carrito</button></td>
-                            </tr>
-                        </table>
-                        <h6> Importe total a pagar: {precioTotal}M Isk</h6>
-                        <button onClick= {() => borrarTodo()}>Vaciar Carrito</button>
+            <div className="container">
+                <div className="row">
+                    <div className="contenedorTabla listaContenedor flex-start" >
+                        <div className="listaCarrito">
+                            <h2>Lista de compras</h2>
+                            <table className="react-reveal mb-5 table table-dark table-striped">
+                                <thead>
+                                    <tr className="tabraTitulo table-dark">
+                                        <th>  Foto  </th>
+                                        <th>  Nave  </th>
+                                        <th>  Cantidad  </th>
+                                        <th>  Precio por unidad  </th>
+                                        <th>   Subtotal    </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {cartList.map(prodCart => <CartItem key={prodCart.prod.id} productos={prodCart}/>)}
+                                    {/* <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong>Importe total a pagar:</strong></td>
+                                        <td>${precioTotal}M Isk</td>
+                                        <td> <button onClick= {() => borrarTodo()}>Vaciar Carrito</button></td>
+                                    </tr> */}
+                                </tbody>
+                            </table>
+                            <div className="">
+                                <h6> Importe total a pagar: {precioTotal}M Isk</h6>
+                                <div className="container">
+                                    <div className="d-flex justify-content-around">
+                                        <div>
+                                            <Link to={`/`} className=" "><button type="submit">Seguir comprando</button></Link>
+                                        </div>
+                                        <div>
+                                            <button type="alerta" onClick= {() => borrarTodo()}>Vaciar Carrito</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="formu">
-                    {/* <form action="" className="form">
-                        <label> Completa el formulario </label>
-                        <input type="text" required placeholder="Nombre del Piloto" name="nombre" />
-                        <input type="text" required placeholder="Numero de telefono" name="whatsapp" />
-                        <input type="text" required placeholder="Discord" name="discord" />
-                        <input type="text" placeholder="Mail" name="mail" />
-                        <button  onClick= {() => generarOrden()}> Generar Orden </button>
-                    </form> */}
-                     {/* <form onSubmit={generarOrden} onChange={handleChange}> 
-                        <input type="text" name="nombre" placeholder="nombre" value={formData.nombre}/>
-                        <input type="text"name="telefono" placeholder="telefono"value={formData.telefono}/>
-                        <input type="email" name="email" placeholder="email" value={formData.email}/>
-                        <button>Enviar</button>
-                    </form> */}
 
+                    <div className="formu">
                         <form id="contact" onSubmit={generarOrden} onChange={handleChange} method="post">
-                            <h3>Complete el formulario</h3>
+                            <h3>Complete el formulario para finalizar compra</h3>
                             <fieldset>
                                 <input placeholder="Nick del Piloto" name="nombre" type="text" tabindex="1" required autofocus value={formData.nombre}/>
                             </fieldset>
@@ -130,10 +134,10 @@ export default function Cart() {
                                 <input placeholder="Vuelva a ingresar el Email" name="email2" type="email" tabindex="4" required value={formData.email2}/>
                             </fieldset>
                             <fieldset>
-                                <textarea placeholder="Algun comentario que nos quiera dejar?" tabindex="5" type="comentario" required value={formData.comentario}></textarea>
+                                <textarea placeholder="Algun comentario que nos quiera dejar?" name="comentario" type="text" tabindex="5" value={formData.comentario}></textarea>
                             </fieldset>
                             <p>
-                                <input type="checkbox" name="acepta" value="1" />
+                                <input type="checkbox" name="acepta" value="1" required />
                                 Acepta términos y condiciones
                             </p>
 
@@ -144,10 +148,9 @@ export default function Cart() {
                                 </fieldset>
                             ) : (
                                 <></>
-                            )}
-                            
-                            
+                            )} 
                         </form>
+                    </div>
                 </div>
             </div>
         )

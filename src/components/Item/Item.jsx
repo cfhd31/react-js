@@ -24,7 +24,7 @@ const Item = ({prod}) => {
         <div className="catalogo">
             <div className="react-reveal card efecto bg-dark">
             <h4 className="card-title">{prod.tipo}</h4>
-            <img src={prod.imagen} className="card-img-top " />
+            <img src={prod.imagen} className="card-img-top img-fluid" />
                 <div className="card-body">
                 <h5 className="card-title">Nave: {prod.nombre}</h5>
                     <div className="card-text">
