@@ -10,29 +10,30 @@ import './cart.css'
 export default function Cart() {
     const {cartList, borrarTodo, borrarItem, } = useCartContext()
     const [idOrder, setIdOrder] = useState('')
-
-    const [formData, setFormData] = useState({nombre: '', telefono: '', email: ''})
+    const [orderId, setOrderId] = useState("")
+    const [messageErr, setmessageErr] = useState("")
+    const [formData, setFormData] = useState({name: '', phone: '', email: ''})
 
     const generarOrden = (e) =>{
         e.preventDefault()
 
         let orden = {}
         orden.date = firebase.firestore.Timestamp.fromDate(new Date())
-        .firestore
+        /*.firestore
         .Timestamp
-        .fromDate(new Date());
+        .fromDate(new Date());*/
         orden.buyer = formData
-        orden.total = {precioTotal};
+        orden.total = {precioTotal}; // estaba {precioTotal}
+        orden.state = "Generado"
         orden.items = cartList.map(cartItem => {
             const id = cartItem.prod.id;
             const nombre = cartItem.prod.nombre;
-            const precio = cartItem.prod.price * cartItem.cantidad
-            console.log(cartItem)
-            return {id, nombre, precio}
+            const cantidad = cartItem.cantidad;
+            const precio = cartItem.prod.precio * cartItem.cantidad
+            return {id, nombre, precio, cantidad}
         })
 
-        const dbQuery = getFirestore()
-
+        /*const dbQuery = getFirestore()
         dbQuery.collection('orders').add(orden) //subo al firestore la orden
         .then(resp => setIdOrder(resp.id))
         .catch(err=> console.log(err))
@@ -40,25 +41,31 @@ export default function Cart() {
             nombre:'',
             telefono:'',
             email:''
-        }))
+        }))*/
+        setOrderId("")
+		const dbQuery = getFirestore()
+		dbQuery
+			.collection("orders").add(orden)
+			.then((resp) => setOrderId(resp.id))
+			.catch((err) => setmessageErr(err))
+			.finally(() => setFormData({ name: "", phone: "", email: "", comentario: "" }))
+
 
         const itemsToUpdate = dbQuery.collection('items').where(
             firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i=> i.id)
         )
-    
         const batch = dbQuery.batch();
 
-        itemsToUpdate.get()
-        .then( collection=>{
+        itemsToUpdate.get().then(collection =>{
             collection.docs.forEach(docSnapshot => {
                 batch.update(docSnapshot.ref, {
-                    stock: docSnapshot.data().stock - cartList.find(item => item.id === docSnapshot.id).cantidad
+                    stock: docSnapshot.data().stock - cartList.find(items => items.id === docSnapshot.id).cantidad
                 })
             })
-    
             batch.commit().then(res =>{
                 console.log('resultado batch:', res)
             })
+            //batch.commit().catch((err) => setmessageErr(err))
         })
     }
 
@@ -69,6 +76,7 @@ export default function Cart() {
           [e.target.name]: e.target.value
       })
     }
+    
 
     const precioTotal = cartList.reduce((prev, next) => prev + (next.cantidad*next.prod.precio), 0)
     var condition = !cartList?.length
@@ -122,13 +130,13 @@ export default function Cart() {
                         <form id="contact" onSubmit={generarOrden} onChange={handleChange} method="post">
                             <h3>Complete el formulario para finalizar compra</h3>
                             <fieldset>
-                                <input placeholder="Nick del Piloto" name="nombre" type="text" tabindex="1" required autofocus value={formData.nombre}/>
+                                <input placeholder="Nick del Piloto"    name="name"  type="text" tabindex="1" required autofocus value={formData.name}/>
                             </fieldset>
                             <fieldset>
-                                <input placeholder="Numero de telefono" name="telefono" type="tel" tabindex="2" required value={formData.telefono}/>
+                                <input placeholder="Numero de telefono" name="phone"   type="tel" tabindex="2" required value={formData.phone}/>
                             </fieldset>
                             <fieldset>
-                                <input placeholder="Email" name="email" type="email" tabindex="3" required value={formData.email}/>
+                                <input placeholder="Email"              name="email" type="email" tabindex="3" required value={formData.email}/>
                             </fieldset>
                             <fieldset>
                                 <input placeholder="Vuelva a ingresar el Email" name="email2" type="email" tabindex="4" required value={formData.email2}/>
@@ -137,7 +145,7 @@ export default function Cart() {
                                 <textarea placeholder="Algun comentario que nos quiera dejar?" name="comentario" type="text" tabindex="5" value={formData.comentario}></textarea>
                             </fieldset>
                             <p>
-                                <input type="checkbox" name="acepta" value="1" required />
+                                <input type="checkbox" name="terminos" value="1" required />
                                 Acepta términos y condiciones
                             </p>
 
