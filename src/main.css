@@ -7539,8 +7539,7 @@ header {
   100% {
     opacity: 1; } }
 
-nav {
-  /*MENU */ }
+
   nav .espacio {
     margin-left: 10px;
     margin-bottom: 2px; }
@@ -7562,8 +7561,9 @@ nav {
     padding: 0.3rem 0.5rem; }
 
 .menu--fondo {
-  background-color: #ffffff; 
+  
   justify-content: space-between;
+  
 }
 
 .menu--Centrado {
@@ -7819,15 +7819,7 @@ footer {
     height: 100px;
     max-width: 100%;
     resize: none; }
-  .formu #contact button[type="submit"] {
-    cursor: pointer;
-    width: 100%;
-    border: none;
-    background: #474747;
-    color: #FFF;
-    margin: 0 0 5px;
-    padding: 10px;
-    font-size: 15px; }
+ 
   .formu #contact button[type="submit"]:hover {
     background: #43A047;
     -webkit-transition: background 0.3s ease-in-out;

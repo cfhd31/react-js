@@ -7,9 +7,9 @@ import { useCartContext } from '../../context/CartContext'
 import './item.css'
 
 const Item = ({prod}) => {
-    const[ count, setCount] = useState(1)
+    const[count, setCount] = useState(1)
     const [inputType, setInputType] = useState('input')
-    const { cartList, mostrarListado, agregarAlCarrito} = useCartContext()
+    const {agregarAlCarrito} = useCartContext()
 
     //console.log(cartList);
     //console.log(mostrarListado);
@@ -20,11 +20,34 @@ const Item = ({prod}) => {
         agregarAlCarrito({prod, cantidad: count})
     }
     
+    if (prod.stock <= 0) {
+        
     return (
         <div className="catalogo">
             <div className="react-reveal card efecto bg-dark">
             <h4 className="card-title">{prod.tipo}</h4>
-            <img src={prod.imagen} className="card-img-top img-fluid" />
+            <img src={prod.imagen} className="card-img-top img-fluid" alt="Foto de nave" />
+                <div className="card-body">
+                <h5 className="card-title">Nave: {prod.nombre}</h5>
+                    <div className="card-text">
+                        <p className="text-secundary"> <strong>Precio:</strong> {prod.precio}M ISK</p>
+                        <Link to={`/detalle/${prod.id}`} className="text-primary">
+                            <p>Ver detalle de la nave...</p>
+                        </Link>
+                        <div className="fw-bold text-danger">
+                            <h4>Sin Stock</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+    }
+    return (
+        <div className="catalogo">
+            <div className="react-reveal card efecto bg-dark">
+            <h4 className="card-title">{prod.tipo}</h4>
+            <img src={prod.imagen} className="card-img-top img-fluid" alt="Foto de nave" />
                 <div className="card-body">
                 <h5 className="card-title">Nave: {prod.nombre}</h5>
                     <div className="card-text">

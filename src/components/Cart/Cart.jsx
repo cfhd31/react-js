@@ -8,8 +8,7 @@ import 'firebase/firestore'
 import './cart.css'
 
 export default function Cart() {
-    const {cartList, borrarTodo, borrarItem, } = useCartContext()
-    const [idOrder, setIdOrder] = useState('')
+    const {cartList, borrarTodo } = useCartContext()
     const [orderId, setOrderId] = useState("")
     const [messageErr, setmessageErr] = useState("")
     const [formData, setFormData] = useState({name: '', phone: '', email: ''})
@@ -19,9 +18,6 @@ export default function Cart() {
 
         let orden = {}
         orden.date = firebase.firestore.Timestamp.fromDate(new Date())
-        /*.firestore
-        .Timestamp
-        .fromDate(new Date());*/
         orden.buyer = formData
         orden.total = {precioTotal}; // estaba {precioTotal}
         orden.state = "Generado"
@@ -33,42 +29,33 @@ export default function Cart() {
             return {id, nombre, precio, cantidad}
         })
 
-        /*const dbQuery = getFirestore()
-        dbQuery.collection('orders').add(orden) //subo al firestore la orden
-        .then(resp => setIdOrder(resp.id))
-        .catch(err=> console.log(err))
-        .finally(()=> setFormData({
-            nombre:'',
-            telefono:'',
-            email:''
-        }))*/
-        setOrderId("")
+        
 		const dbQuery = getFirestore()
 		dbQuery
 			.collection("orders").add(orden)
 			.then((resp) => setOrderId(resp.id))
 			.catch((err) => setmessageErr(err))
-			.finally(() => setFormData({ name: "", phone: "", email: "", comentario: "" }))
-
+			.finally(() => setFormData({ name: "", phone: "", email: "", email2:"", comentario:""}),
+            alert("Su pedido fue enviado"),
+                borrarTodo()
+            )
+         
 
         const itemsToUpdate = dbQuery.collection('items').where(
-            firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i=> i.id)
+            firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i=> i.prod.id)
         )
         const batch = dbQuery.batch();
 
-        itemsToUpdate.get().then(collection =>{
+        itemsToUpdate.get()
+        .then(collection =>{
             collection.docs.forEach(docSnapshot => {
                 batch.update(docSnapshot.ref, {
-                    stock: docSnapshot.data().stock - cartList.find(items => items.id === docSnapshot.id).cantidad
+                    stock: docSnapshot.data().stock - cartList.find(items => items.prod.id === docSnapshot.id).cantidad
                 })
             })
-            batch.commit().then(res =>{
-                console.log('resultado batch:', res)
-            })
-            //batch.commit().catch((err) => setmessageErr(err))
+            batch.commit().catch((err) => console.log(err))
         })
     }
-
 
     const handleChange = (e) => {
         setFormData({
@@ -100,14 +87,6 @@ export default function Cart() {
                                 </thead>
                                 <tbody>
                                     {cartList.map(prodCart => <CartItem key={prodCart.prod.id} productos={prodCart}/>)}
-                                    {/* <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><strong>Importe total a pagar:</strong></td>
-                                        <td>${precioTotal}M Isk</td>
-                                        <td> <button onClick= {() => borrarTodo()}>Vaciar Carrito</button></td>
-                                    </tr> */}
                                 </tbody>
                             </table>
                             <div className="">
@@ -130,13 +109,13 @@ export default function Cart() {
                         <form id="contact" onSubmit={generarOrden} onChange={handleChange} method="post">
                             <h3>Complete el formulario para finalizar compra</h3>
                             <fieldset>
-                                <input placeholder="Nick del Piloto"    name="name"  type="text" tabindex="1" required autofocus value={formData.name}/>
+                                <input placeholder="Nick del Piloto" name="name"  type="text" tabindex="1" required autofocus value={formData.name}/>
                             </fieldset>
                             <fieldset>
-                                <input placeholder="Numero de telefono" name="phone"   type="tel" tabindex="2" required value={formData.phone}/>
+                                <input placeholder="Numero de telefono" name="phone"   type="tel" tabindex="2" min="6" max="50" required value={formData.phone}/>
                             </fieldset>
                             <fieldset>
-                                <input placeholder="Email"              name="email" type="email" tabindex="3" required value={formData.email}/>
+                                <input placeholder="Email" name="email" type="email" tabindex="3" required value={formData.email}/>
                             </fieldset>
                             <fieldset>
                                 <input placeholder="Vuelva a ingresar el Email" name="email2" type="email" tabindex="4" required value={formData.email2}/>
@@ -149,14 +128,10 @@ export default function Cart() {
                                 Acepta términos y condiciones
                             </p>
 
-                            {formData.email !== "" && formData.email === formData.email2 ? (
-                                <fieldset>
-                                    <button name="Enviar" type="submit" id="contact-submit" data-submit="...Sending" variant="success">Generar Orden</button>
-                                    <p className="copyright">volver a<Link to={`/`} className="waves-effect waves-light btn"><h5>Inicio</h5></Link></p>
-                                </fieldset>
-                            ) : (
-                                <></>
-                            )} 
+                            <fieldset>
+                                <button disabled={formData.email!==formData.email2 ? true : false} name="Enviar" type="submit" id="contact-submit" data-submit="...Sending" variant="success">Generar Orden</button>
+                                <p className="copyright">volver a<Link to={`/`} className="waves-effect waves-light btn"><h5>Inicio</h5></Link></p>
+                            </fieldset>  
                         </form>
                     </div>
                 </div>

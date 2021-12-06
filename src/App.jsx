@@ -22,7 +22,7 @@ const App = () => {
                         </Route>
                         <Route path='/categoria/:id' exact component={ItemListContainer} />                    
                         <Route exact path='/detalle/:id' component={ItemDetailContainer} />                    
-                        <Route exact path='/cart' component={Cart} />                    
+                        <Route exact path='/cart' component={Cart} />                  
                     </Switch>
                 </BrowserRouter>    
             </CartContextProvider>      

@@ -49,7 +49,7 @@ Para clonar este repositorio debe seguir las siguientes instrucciones:
 
 Por mayor información: `https://docs.github.com/es/repositories/creating-and-managing-repositories/cloning-a-repository`
 
-## Complementos
+## Complementos istalados
 
 Una vez clonado el repositorio, para que el proyecto se ejecute correctamente, se deben instalar las siguientes librerias:
 
@@ -59,18 +59,23 @@ Una vez clonado el repositorio, para que el proyecto se ejecute correctamente, s
 npm install react-router-dom
 ```
 
-`•	Firebase`  : Libreria de servicios de Google, que nos facilita y permite desarrollar el front-end, sin preocuparnos del back-end. Permite satisfacer las distintas necesidades de esta aplicación y su ciclo de desarrollo, dentro de las cuales encontramos: Seguridad y autenticación, Almacenamiento y consulta, Hosting, Monitoreo, Functions y más.
+`Firebase`  : Libreria de servicios de Google, que nos facilita y permite desarrollar el front-end, sin preocuparnos del back-end. Permite satisfacer las distintas necesidades de esta aplicación y su ciclo de desarrollo, dentro de las cuales encontramos: Seguridad y autenticación, Almacenamiento y consulta, Hosting, Monitoreo, Functions y más.
 
-`•	react-bootstrap 5.1.1`  : Es un framework front-end con el que le damos los diferentes estilos a la SPA.
+`react-bootstrap 5.1.1`  : Es un framework front-end con el que le damos los diferentes estilos a la SPA.
 
 ```sh
 npm install react-bootstrap@next bootstrap@5.1.1
 ```
 
-`•	react-awesome-reveal`  : Biblioteca de React que nos permite la animación de los componentes del proyecto, de manera fácil y eficiente. Para agregarlo, ejecute el siguiente comando desde la raíz del proyecto.
-
+`react-awesome-reveal`  : Biblioteca de React que nos permite la animación de los componentes del proyecto, de manera fácil y eficiente. Para agregarlo, ejecute el siguiente comando:
 ```sh
 npm install --save react-awesome-reveal
+```
+
+
+`react-loadingg`  : React-Loading es una biblioteca de componentes de animación de "Loading" basada en React que incluye muchos componentes de carga exquisitos. Aliviará eficazmente la ansiedad del usuario. Esta biblioteca de componentes admite la carga bajo demanda, así que elija un componente de carga favorito ahora para enriquecer su proyecto. Para agregarlo, ejecute el siguiente comando:
+```sh
+npm install react-loadingg
 ```
 
 ## Ejecución

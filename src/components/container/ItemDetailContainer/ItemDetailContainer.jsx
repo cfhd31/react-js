@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail'
-import { getFetchNaves } from '../../../services/GetFetch'
+//import { getFetchNaves } from '../../../services/GetFetch'
 import { getFirestore } from '../../../services/getFirestore';
 
 const ItemDetailContainer = () => {

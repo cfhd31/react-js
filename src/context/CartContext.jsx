@@ -10,7 +10,6 @@ export const CartContextProvider = ({children}) => {
 
     const agregarAlCarrito = (items) =>{
         const checkNuevo = cartList.find(item => item.prod.id === items.prod.id);
-        
         if (checkNuevo) {
             checkNuevo.cantidad = checkNuevo.cantidad + items.cantidad
             setCartList(cartList)
