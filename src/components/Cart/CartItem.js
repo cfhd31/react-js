@@ -4,7 +4,6 @@ import { useCartContext } from '../../context/CartContext'
 export default function CartItem(prodCart) {
     const {borrarItem} = useCartContext()
 
-    
     return (
         <tr className="">
             <td><img className="imagen img-fluid" src={prodCart.productos.prod.imagen} alt={prodCart.productos.prod.tipo}/></td>

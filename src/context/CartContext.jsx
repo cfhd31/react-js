@@ -19,11 +19,9 @@ export const CartContextProvider = ({children}) => {
         setContador(cartList.reduce((prev, next) => prev + next.cantidad, 0))
     }
 
-
     const borrarTodo = () => {
         setCartList([])
     }
-
 
     const borrarItem = itemId =>{
         const itemBorrar = cartList.filter(item => item.prod.id !== itemId)
@@ -33,7 +31,6 @@ export const CartContextProvider = ({children}) => {
     const precioTotal = ()=>{
         return( cartList.reduce((prev, next) => prev + (next.cantidad * next.prod.price), 0))
     }
-
 
     useEffect(() => {
         setContador(cartList.reduce((prev, next) => prev + next.cantidad, 0))

@@ -28,6 +28,7 @@ const ItemDetail = ({prod}) => {
                     <h5 className="card-title"><strong>Nave:</strong> {prod.nombre}</h5>
                     <p className="card-text"><strong>Precio:</strong> {prod.precio}M ISK</p>
                     <p className="card-text"><strong>Descripcion:</strong> {prod.descripcion}</p>
+                    <p className="card-text"><strong>Stock:</strong> {prod.stock}</p>
                     <div>
                         <div onClick={()=>onAdd}> 
                             {

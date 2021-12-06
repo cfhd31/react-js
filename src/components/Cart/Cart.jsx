@@ -6,6 +6,7 @@ import {getFirestore} from '../../services/getFirestore'
 import firebase from "firebase"
 import 'firebase/firestore'
 import './cart.css'
+import AlertaCompra from './AlertaCompra'
 
 export default function Cart() {
     const {cartList, borrarTodo } = useCartContext()
@@ -36,11 +37,10 @@ export default function Cart() {
 			.then((resp) => setOrderId(resp.id))
 			.catch((err) => setmessageErr(err))
 			.finally(() => setFormData({ name: "", phone: "", email: "", email2:"", comentario:""}),
-            alert("Su pedido fue enviado"),
+                <AlertaCompra/>,
                 borrarTodo()
             )
          
-
         const itemsToUpdate = dbQuery.collection('items').where(
             firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i=> i.prod.id)
         )
@@ -63,7 +63,6 @@ export default function Cart() {
           [e.target.name]: e.target.value
       })
     }
-    
 
     const precioTotal = cartList.reduce((prev, next) => prev + (next.cantidad*next.prod.precio), 0)
     var condition = !cartList?.length
@@ -71,7 +70,7 @@ export default function Cart() {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="contenedorTabla listaContenedor flex-start" >
+                    <div className="contenedorTabla flex-start " >
                         <div className="listaCarrito">
                             <h2>Lista de compras</h2>
                             <table className="react-reveal mb-5 table table-dark table-striped">
