@@ -6,7 +6,6 @@ import firebase from "firebase"
 import CartItem from './CartItem'
 import 'firebase/firestore'
 import './cart.css'
-import AlertaCompra from './AlertaCompra'
 import Formulario from './Formulario'
 
 export default function Cart() {
@@ -21,13 +20,13 @@ export default function Cart() {
         let orden = {}
         orden.date = firebase.firestore.Timestamp.fromDate(new Date())
         orden.buyer = formData
-        orden.total = {precioTotal}; 
+        orden.total = precioTotal(); 
         orden.state = "Generado"
         orden.items = cartList.map(cartItem => {
-            const id = cartItem.prod.id;
-            const nombre = cartItem.prod.nombre;
+            const id = cartItem.id;
+            const nombre = cartItem.nombre;
             const cantidad = cartItem.cantidad;
-            const precio = cartItem.prod.precio * cartItem.cantidad
+            const precio = cartItem.precio * cartItem.cantidad
             return {id, nombre, precio, cantidad}
         })
 
@@ -39,11 +38,10 @@ export default function Cart() {
 			.catch((err) => console.log(err))
 			.finally(() => setFormData({ name: "", phone: "", email: "", email2:"", comentario:""}),
              borrarTodo()
-             
             )
          
         const itemsToUpdate = dbQuery.collection('items').where(
-            firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i=> i.prod.id)
+            firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i=> i.id)
         )
         const batch = dbQuery.batch();
 
@@ -51,7 +49,7 @@ export default function Cart() {
         .then(collection =>{
             collection.docs.forEach(docSnapshot => {
                 batch.update(docSnapshot.ref, {
-                    stock: docSnapshot.data().stock - cartList.find(items => items.prod.id === docSnapshot.id).cantidad
+                    stock: docSnapshot.data().stock - cartList.find(items => items.id === docSnapshot.id).cantidad
                 })
             })
             batch.commit().catch((err) => console.log(err))
@@ -107,13 +105,26 @@ export default function Cart() {
                 </div>
             </div>
         :
-   
+   <div>
 
+         <div className="container">
+          
+                {orderId!==''?
+                <div className="finalCompra">
+                    <h3>Gracias por su compra</h3>
+                    <h5>El id de su orden es : {orderId}</h5>
+                
+                </div>
+         
 
-        <div className="container">
+              :
+              <div className="cartVacio">
             <br />
             <h2>Tu carrito está vacío</h2> 
             <Link to ="/" className = "waves-effect waves-light btn"> Ir a Inicio </Link>
+        </div>}
         </div>
+        </div>
+        
     )
 }
