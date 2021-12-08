@@ -7,6 +7,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Publicidad from './components/publicidad/Publicidad';
 import CartContextProvider from './context/CartContext';
+import Footer from './components/Footer';
 const App = () => {   
   
     return (        
@@ -24,6 +25,8 @@ const App = () => {
                         <Route exact path='/detalle/:id' component={ItemDetailContainer} />                    
                         <Route exact path='/cart' component={Cart} />                  
                     </Switch>
+
+                    <Footer/>
                 </BrowserRouter>    
             </CartContextProvider>      
         </div>        

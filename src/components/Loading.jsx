@@ -5,7 +5,6 @@ import { SolarSystemLoading  } from 'react-loadingg';
 const Loading = () => {
   return (
     <SolarSystemLoading  />
-
   );
 };
 

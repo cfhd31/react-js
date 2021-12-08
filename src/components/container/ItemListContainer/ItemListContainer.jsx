@@ -1,17 +1,14 @@
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-//import { getFetchNaves } from '../../../services/GetFetch'
 import { getFirestore } from '../../../services/getFirestore'
 import ItemList from '../../ItemList/ItemList'
 import Loading from '../../Loading'
 import './itemListContainer.css'
 
 const ItemListContainer = () => {
-
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
   
-
     const { id } = useParams()
 
     useEffect(() => {
@@ -26,26 +23,8 @@ const ItemListContainer = () => {
             dbQuery.then (resp=> setProducts(resp.docs.map(prod =>({id:prod.id, ...prod.data()}))))
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
-    }
-
-    //     if (id) {
-    //         getFetchNaves
-    //         .then( res => {        
-    //             console.log('llamada a api')
-    //             setProduct(res.filter(prod => prod.tipo === id ))
-    //         })    
-    //         .catch(err => console.log(err))
-    //         .finally(()=> setLoading(false))              
-    //     }else{
-    //         getFetchNaves
-    //         .then( res => {        
-    //             console.log('llamada a api')
-    //             setProduct(res)
-    //         })    
-    //         .catch(err => console.log(err))
-    //         .finally(()=> setLoading(false))  
-    //     }
-     },[id]) 
+        }
+    },[id]) 
       
     return loading ? (
         <Loading /> ) : (

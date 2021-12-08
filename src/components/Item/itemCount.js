@@ -10,14 +10,12 @@ export default function ItemCount({onAdd, stock}) {
         if (count < stock){
             setCount(count + 1)
         }
-
     };
     
     const disminuyeContador = () => {
         if(count > 1){
           setCount(count - 1);
         }
-        
     };
 
     return (

@@ -1,4 +1,4 @@
-![Mercado Negro](https://github.com/cfhd31/react-js)
+![EVE](https://github.com/cfhd31/react-js/blob/master/public/assets/imagen/eve0.png)
 # Mercado de la Alianza [Bot5]
 ## _Proyecto e-commerce para vender naves de la corporacion [GDA] a la Alianza[Bot5]._
 > Proyecto final E-commerce, Curso React-Js de [CoderHouse](https://www.coderhouse.com/). Año 2021 
@@ -102,7 +102,7 @@ Actualmente cuenta con los siguientes Componentes:
 - `CartContext` : que contiene todas las funcionalidades asociadas al carrito de compras.
 
 ## Demo del Proyecto
-- [REFUGIO Tienda Deco](....)
+- [Eve](https://github.com/cfhd31/react-js/blob/master/public/assets/imagen/eve0.png)
 
 ## Avance del Proyecto
 

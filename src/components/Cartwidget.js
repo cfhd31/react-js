@@ -9,10 +9,10 @@ export const CartWidget = ({ }) => {
     
     <div className={contadorCarrito >0 ? 'mostrar':'ocultar'}> 
       <Link to="/cart" >
-          <img src='../assets/imagen/carrito.png' className=" imagenLogo2" alt="imagen carrito" />
-            <span className="badge">{contadorCarrito}  </span> 
-          <i className="fas fa-shopping-cart"></i>
-       </Link>
+        <img src='../assets/imagen/carrito.png' className=" carrito " alt="imagen carrito" />
+          <span className="badge">{contadorCarrito}  </span> 
+        <i className="fas fa-shopping-cart"></i>
+      </Link>
     </div> 
   )
 }

@@ -20,7 +20,7 @@ export default function Cart() {
         let orden = {}
         orden.date = firebase.firestore.Timestamp.fromDate(new Date())
         orden.buyer = formData
-        orden.total = {precioTotal}; // estaba {precioTotal}
+        orden.total = {precioTotal}; 
         orden.state = "Generado"
         orden.items = cartList.map(cartItem => {
             const id = cartItem.prod.id;

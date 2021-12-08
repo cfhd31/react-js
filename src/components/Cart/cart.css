@@ -4,7 +4,6 @@
 }
 
 .contenedorTabla {
-    
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -18,13 +17,6 @@
     position: relative; 
 }
 
-/* .listaCarrito {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 50vw;
-    margin-left: 5em;
-} */
 .filaTabla{
     border: inset;
 }
@@ -119,8 +111,8 @@ button[type="submit"]:hover {
     padding: 10px;
     font-size: 17px; }
 
-    .formu #contact button[type="submit"]:disabled{
-        background: #6e6e6e;}
+.formu #contact button[type="submit"]:disabled{
+    background: #6e6e6e;}
 
 
 button[type="alerta"] {

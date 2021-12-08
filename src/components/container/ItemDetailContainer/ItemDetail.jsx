@@ -10,9 +10,6 @@ const ItemDetail = ({prod}) => {
     const [inputType, setInputType] = useState('input')
     const { agregarAlCarrito} = useCartContext()
     
-    // console.log(cartList);
-    // console.log(mostrarListado);
-
     const onAdd = (count) => {
         setInputType('button')
         setCount(count)
@@ -20,7 +17,7 @@ const ItemDetail = ({prod}) => {
     }
 
     return (
-        <div>
+        <div className="ItemDetail">
             <div className="react-reveal card-detalle efecto bg-dark text-light" >
             <h4 className="card-title text-danger font-weight-bold ">{prod.tipo}</h4>
             <img src={prod.imagen} className=" card-img-top img-fluid" loading="lazy" alt="nave" />
