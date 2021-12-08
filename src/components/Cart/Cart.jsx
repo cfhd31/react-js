@@ -1,19 +1,20 @@
 import {useState} from 'react'
 import {useCartContext} from '../../context/CartContext'
-import CartItem from './CartItem'
 import {Link} from "react-router-dom"
 import {getFirestore} from '../../services/getFirestore'
 import firebase from "firebase"
+import CartItem from './CartItem'
 import 'firebase/firestore'
 import './cart.css'
 import AlertaCompra from './AlertaCompra'
+import Formulario from './Formulario'
 
 export default function Cart() {
-    const {cartList, borrarTodo } = useCartContext()
+    const {cartList, borrarTodo, formData, setFormData, precioTotal} = useCartContext()
     const [orderId, setOrderId] = useState("")
-    const [messageErr, setmessageErr] = useState("")
-    const [formData, setFormData] = useState({name: '', phone: '', email: ''})
-
+   
+ 
+ 
     const generarOrden = (e) =>{
         e.preventDefault()
 
@@ -30,15 +31,15 @@ export default function Cart() {
             return {id, nombre, precio, cantidad}
         })
 
-        
+      
 		const dbQuery = getFirestore()
 		dbQuery
 			.collection("orders").add(orden)
 			.then((resp) => setOrderId(resp.id))
-			.catch((err) => setmessageErr(err))
+			.catch((err) => console.log(err))
 			.finally(() => setFormData({ name: "", phone: "", email: "", email2:"", comentario:""}),
-                <AlertaCompra/>,
-                borrarTodo()
+             borrarTodo()
+             
             )
          
         const itemsToUpdate = dbQuery.collection('items').where(
@@ -64,10 +65,8 @@ export default function Cart() {
       })
     }
 
-    const precioTotal = cartList.reduce((prev, next) => prev + (next.cantidad*next.prod.precio), 0)
-    var condition = !cartList?.length
-    if (condition !== true) {
-        return (
+    return (
+        cartList.length?
             <div className="container">
                 <div className="row">
                     <div className="contenedorTabla flex-start " >
@@ -85,7 +84,7 @@ export default function Cart() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {cartList.map(prodCart => <CartItem key={prodCart.prod.id} productos={prodCart}/>)}
+                               {cartList.map(prodCart => <CartItem key={prodCart.id} productos={prodCart}/>)}
                                 </tbody>
                             </table>
                             <div className="">
@@ -93,7 +92,7 @@ export default function Cart() {
                                 <div className="container">
                                     <div className="d-flex justify-content-around">
                                         <div>
-                                            <Link to={`/`} className=" "><button type="submit">Seguir comprando</button></Link>
+                                            <Link to="/"><button type="submit">Seguir comprando</button></Link>
                                         </div>
                                         <div>
                                             <button type="alerta" onClick= {() => borrarTodo()}>Vaciar Carrito</button>
@@ -104,45 +103,17 @@ export default function Cart() {
                         </div>
                     </div>
 
-                    <div className="formu">
-                        <form id="contact" onSubmit={generarOrden} onChange={handleChange} method="post">
-                            <h3>Complete el formulario para finalizar compra</h3>
-                            <fieldset>
-                                <input placeholder="Nick del Piloto" name="name"  type="text" tabindex="1" required autofocus value={formData.name}/>
-                            </fieldset>
-                            <fieldset>
-                                <input placeholder="Numero de telefono" name="phone"   type="tel" tabindex="2" min="6" max="50" required value={formData.phone}/>
-                            </fieldset>
-                            <fieldset>
-                                <input placeholder="Email" name="email" type="email" tabindex="3" required value={formData.email}/>
-                            </fieldset>
-                            <fieldset>
-                                <input placeholder="Vuelva a ingresar el Email" name="email2" type="email" tabindex="4" required value={formData.email2}/>
-                            </fieldset>
-                            <fieldset>
-                                <textarea placeholder="Algun comentario que nos quiera dejar?" name="comentario" type="text" tabindex="5" value={formData.comentario}></textarea>
-                            </fieldset>
-                            <p>
-                                <input type="checkbox" name="terminos" value="1" required />
-                                Acepta términos y condiciones
-                            </p>
-
-                            <fieldset>
-                                <button disabled={formData.email!==formData.email2 ? true : false} name="Enviar" type="submit" id="contact-submit" data-submit="...Sending" variant="success">Generar Orden</button>
-                                <p className="copyright">volver a<Link to={`/`} className="waves-effect waves-light btn"><h5>Inicio</h5></Link></p>
-                            </fieldset>  
-                        </form>
-                    </div>
+              <Formulario envio={generarOrden} change={handleChange} />
                 </div>
             </div>
-        )
-    } 
+        :
+   
 
-    return(
+
         <div className="container">
             <br />
             <h2>Tu carrito está vacío</h2> 
-            <Link to = {`/`} className = "waves-effect waves-light btn"> <a>Ir a Inicio </a></Link>
+            <Link to ="/" className = "waves-effect waves-light btn"> Ir a Inicio </Link>
         </div>
     )
 }

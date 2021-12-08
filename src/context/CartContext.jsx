@@ -7,9 +7,12 @@ export const useCartContext = () => useContext(CartContext);
 export const CartContextProvider = ({children}) => {
     const [cartList, setCartList] = useState([])
     const [contadorCarrito, setContador] = useState([0])
-
+ 
     const agregarAlCarrito = (items) =>{
-        const checkNuevo = cartList.find(item => item.prod.id === items.prod.id);
+        const checkNuevo = cartList.find(item => item.id === items.id);
+
+
+
         if (checkNuevo) {
             checkNuevo.cantidad = checkNuevo.cantidad + items.cantidad
             setCartList(cartList)
@@ -24,12 +27,12 @@ export const CartContextProvider = ({children}) => {
     }
 
     const borrarItem = itemId =>{
-        const itemBorrar = cartList.filter(item => item.prod.id !== itemId)
+        const itemBorrar = cartList.filter(item => item.id !== itemId)
         setCartList(itemBorrar)
     }
     
     const precioTotal = ()=>{
-        return( cartList.reduce((prev, next) => prev + (next.cantidad * next.prod.price), 0))
+        return( cartList.reduce((prev, next) => prev + (next.cantidad * next.price), 0))
     }
 
     useEffect(() => {
@@ -40,9 +43,10 @@ export const CartContextProvider = ({children}) => {
         console.log(cartList)
     }
 
+    const [formData, setFormData] = useState({name: '', phone: '', email: '', email2: ""})
     return (
         <div>
-            <CartContext.Provider value={{cartList, mostrarListado, agregarAlCarrito, borrarTodo, borrarItem, contadorCarrito, precioTotal}}>
+            <CartContext.Provider value={{cartList,formData, setFormData, mostrarListado, agregarAlCarrito, borrarTodo, borrarItem, contadorCarrito, precioTotal}}>
             {children}
             </CartContext.Provider>
         </div>

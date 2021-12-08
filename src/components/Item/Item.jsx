@@ -2,22 +2,22 @@ import React from 'react'
 import { useState } from 'react'
 
 import {Link} from 'react-router-dom'
-import ItemCount from '../../components/Item/itemCount'
-import { useCartContext } from '../../context/CartContext'
+/* import ItemCount from '../../components/Item/itemCount'
+import { useCartContext } from '../../context/CartContext' */
 import './item.css'
 
 const Item = ({prod}) => {
-    const[count, setCount] = useState(1)
+ /*    const[count, setCount] = useState(1) */
     const [inputType, setInputType] = useState('input')
-    const {agregarAlCarrito} = useCartContext()
+    // const {agregarAlCarrito} = useCartContext()
 
-    const onAdd = (count) => {
+/*     const onAdd = (count) => {
         setInputType('button')
         setCount(count)
         agregarAlCarrito({prod, cantidad: count})
-    }
+    } */
     
-    if (prod.stock <= 0) {
+  /*   if (prod.stock <= 0) {
         return (
             <div className="catalogo">
                 <div className="react-reveal card bg-dark">
@@ -30,7 +30,7 @@ const Item = ({prod}) => {
                         <div className="card-text">
                             <p className="text-secundary"> <strong>Precio:</strong> {prod.precio}M ISK</p>
                             <Link to={`/detalle/${prod.id}`} className="text-primary">
-                                <p>Ver detalle de la nave...</p>
+                                <button>Detalle</button>
                             </Link>
                             <div className="fw-bold text-danger">
                                 <h4>Sin Stock</h4>
@@ -40,7 +40,7 @@ const Item = ({prod}) => {
                 </div>
             </div>
         )
-    }
+    } */
     return (
         <div className="catalogo">
             <div className="react-reveal card bg-dark">
@@ -52,18 +52,25 @@ const Item = ({prod}) => {
                     <h5 className="card-title">Nave: {prod.nombre}</h5>
                     <div className="card-text">
                         <p className="text-secundary"> <strong>Precio:</strong> {prod.precio}M ISK</p>
-                        <Link to={`/detalle/${prod.id}`} className="text-primary">
-                            <p>Ver detalle de la nave...</p>
-                        </Link>
+
+                       
+                        { prod.stock <= 0?
+                          <h4>Sin Stock</h4>
+                          :<Link to={`/detalle/${prod.id}`} className="text-primary">
+                            <button>Detalle</button>
+                            </Link>
+                        }
                         <div>
-                            <div onClick={()=>onAdd}>
+                            {/* <div onClick={()=>onAdd}>
                                 {
                                     inputType === 'input'?
                                     <ItemCount stock={prod.stock} initial="1" onAdd={onAdd}/>
                                     :
                                     <Link to="/cart" className="pretext botonComprar">Ir al Carrito</Link>
                                 }
-                            </div>
+
+                                
+                            </div> */}
                         </div>
                     </div>
                 </div>

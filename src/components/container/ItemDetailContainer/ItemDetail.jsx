@@ -6,16 +6,17 @@ import ItemCount from '../../Item/itemCount'
 import './itemDetail.css'
 
 const ItemDetail = ({prod}) => {
-    const[count, setCount] = useState(1)
+
     const [inputType, setInputType] = useState('input')
     const { agregarAlCarrito} = useCartContext()
     
+ 
     const onAdd = (count) => {
+  
+        agregarAlCarrito({ ...prod, cantidad: count })
         setInputType('button')
-        setCount(count)
-        agregarAlCarrito({prod, cantidad: count})
-    }
-
+    
+      }
     return (
         <div className="ItemDetail">
             <div className="react-reveal card-detalle efecto bg-dark text-light" >
@@ -30,6 +31,7 @@ const ItemDetail = ({prod}) => {
                         <div onClick={()=>onAdd}> 
                             {
                                 inputType === 'input'?
+                                
                                 <ItemCount stock={prod.stock} initial="1" onAdd={onAdd}/>
                                 :
                                 <Link to="/cart" className="pretext botonComprar">Ir al Carrito</Link>

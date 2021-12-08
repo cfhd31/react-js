@@ -137,7 +137,15 @@ justify-content: space-between;
 
 .menu--Centrado {
 text-align: center; }
-
+.contador{
+ 
+    display: contents;
+    padding: .35em .65em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #000000;
+}
 a {
   color: black;
   text-decoration: menu;
