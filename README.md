@@ -43,7 +43,7 @@ Para clonar este repositorio debe seguir las siguientes instrucciones:
 
 2 - Cambia el directorio de trabajo actual a la ubicación en donde quieres clonar el directorio.
 
-3 - Escribe `git clone` y luego pega la siguiente URL `https://github.com/MarceloLuisMoreno/Refugio-Moreno.git`
+3 - Escribe `git clone` y luego pega la siguiente URL ``
 
 4 - Presiona `Enter` para crear tu clon local.
 
@@ -102,7 +102,7 @@ Actualmente cuenta con los siguientes Componentes:
 - `CartContext` : que contiene todas las funcionalidades asociadas al carrito de compras.
 
 ## Demo del Proyecto
-- [Eve](https://github.com/cfhd31/react-js/blob/master/public/assets/imagen/eve0.png)
+- [Eve](https://evemercado.netlify.app/)
 
 ## Avance del Proyecto
 
