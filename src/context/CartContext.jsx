@@ -11,8 +11,6 @@ export const CartContextProvider = ({children}) => {
     const agregarAlCarrito = (items) =>{
         const checkNuevo = cartList.find(item => item.id === items.id);
 
-
-
         if (checkNuevo) {
             checkNuevo.cantidad = checkNuevo.cantidad + items.cantidad
             setCartList(cartList)
@@ -32,7 +30,10 @@ export const CartContextProvider = ({children}) => {
     }
     
     const precioTotal = ()=>{
-        return( cartList.reduce((prev, next) => prev + (next.cantidad * next.price), 0))
+        console.log(cartList)
+        return( 
+            cartList.reduce((prev, next) => prev + (next.cantidad * next.precio), 0)
+        )
     }
 
     useEffect(() => {

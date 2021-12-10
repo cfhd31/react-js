@@ -16,7 +16,6 @@
 .card {
     height: auto;
     margin-top: 2em;
-
     box-shadow: 10px 10px 10px #ffffff;
     width: 16em;
     grid-gap: 1em;
@@ -57,4 +56,21 @@
     overflow: hidden;
     padding-right: 00.5rem;
     padding-left: 00.5rem;
+}
+.buttonDetalle {
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #215c9e;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px; 
+}
+.buttonDetalle:hover {
+    background: #0ba532;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out; 
 }

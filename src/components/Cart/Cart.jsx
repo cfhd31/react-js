@@ -11,8 +11,6 @@ import Formulario from './Formulario'
 export default function Cart() {
     const {cartList, borrarTodo, formData, setFormData, precioTotal} = useCartContext()
     const [orderId, setOrderId] = useState("")
-   
- 
  
     const generarOrden = (e) =>{
         e.preventDefault()
@@ -65,66 +63,58 @@ export default function Cart() {
 
     return (
         cartList.length?
-            <div className="container">
-                <div className="row">
-                    <div className="contenedorTabla flex-start " >
-                        <div className="listaCarrito">
-                            <h2>Lista de compras</h2>
-                            <table className="react-reveal mb-5 table table-dark table-striped">
-                                <thead>
-                                    <tr className="tabraTitulo table-dark">
-                                        <th>  Foto  </th>
-                                        <th>  Nave  </th>
-                                        <th>  Cantidad  </th>
-                                        <th>  Precio por unidad  </th>
-                                        <th>   Subtotal    </th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                               {cartList.map(prodCart => <CartItem key={prodCart.id} productos={prodCart}/>)}
-                                </tbody>
-                            </table>
-                            <div className="">
-                                <h6> Importe total a pagar: {precioTotal}M Isk</h6>
-                                <div className="container">
-                                    <div className="d-flex justify-content-around">
-                                        <div>
-                                            <Link to="/"><button type="submit">Seguir comprando</button></Link>
-                                        </div>
-                                        <div>
-                                            <button type="alerta" onClick= {() => borrarTodo()}>Vaciar Carrito</button>
-                                        </div>
+        <div className="container">
+            <div className="row contenedorListaOrden">
+                <div className="contenedorTabla  " >
+                    <div className="listaCarrito">
+                        <h2>Lista de compras</h2>
+                        <table className="react-reveal mb-5 table table-dark table-striped ">
+                            <thead>
+                                <tr className="tabraTitulo table-dark">
+                                    <th>  Foto  </th>
+                                    <th>  Nave  </th>
+                                    <th>  Cantidad  </th>
+                                    <th>  Precio por unidad  </th>
+                                    <th>  Subtotal    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {cartList.map(prodCart => <CartItem key={prodCart.id} productos={prodCart}/>)}
+                            </tbody>
+                        </table>
+                        <div className="">
+                            <h6> Importe total a pagar: {precioTotal()} M Isk</h6>
+                            <div className="container">
+                                <div className="d-flex justify-content-around">
+                                    <div>
+                                        <Link to="/"><button type="submit">Seguir comprando</button></Link>
+                                    </div>
+                                    <div>
+                                        <button type="alerta" onClick= {() => borrarTodo()}>Vaciar Carrito</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-              <Formulario envio={generarOrden} change={handleChange} />
                 </div>
+                <Formulario envio={generarOrden} change={handleChange} />
             </div>
+        </div>
         :
-   <div>
-
-         <div className="container">
-          
+        <div>
+            <div className="container vacioComprado">
                 {orderId!==''?
                 <div className="finalCompra">
                     <h3>Gracias por su compra</h3>
                     <h5>El id de su orden es : {orderId}</h5>
-                
                 </div>
-         
-
-              :
-              <div className="cartVacio">
-            <br />
-            <h2>Tu carrito está vacío</h2> 
-            <Link to ="/" className = "waves-effect waves-light btn"> Ir a Inicio </Link>
-        </div>}
+                :
+                <div className="">
+                    <h2>Tu carrito está vacío</h2> 
+                    <Link to ="/" className = "waves-effect waves-light btn"> Ir a Inicio </Link>
+                </div>}
+            </div>
         </div>
-        </div>
-        
     )
 }

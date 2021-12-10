@@ -6,7 +6,7 @@ export default function Formulario({envio, change}) {
 
     const {formData } = useCartContext()
     return (
-        <div>
+        <div className="rowAcomodar">
                   <div className="formu">
                         <form id="contact" onSubmit={envio} onChange={change}>
                             <h3>Complete el formulario para finalizar compra</h3>
@@ -31,7 +31,7 @@ export default function Formulario({envio, change}) {
                             </p>
 
                             <fieldset>
-                                <button disabled={formData.email!==formData.email2 ? true : false} name="Enviar" type="submit" id="contact-submit" data-submit="...Sending" variant="success">Generar Orden</button>
+                                <button disabled={formData.name === "" || formData.phone === "" || formData.email === "" || formData.email!==formData.email2 ? true : false} name="Enviar" type="submit" id="contact-submit" data-submit="...Sending" variant="success">Generar Orden</button>
                                 <p className="copyright">volver a<Link to={`/`} className="waves-effect waves-light btn">Inicio</Link></p>
                             </fieldset>  
                         </form>

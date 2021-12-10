@@ -3,19 +3,7 @@
     width: 5em;
 }
 
-.contenedorTabla {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    grid-gap: 2em;
-    gap: 2em;
-    align-items: baseline;
-    justify-content: center;
-    max-width: 900px;
-    width: 100%;
-    position: relative; 
-}
+
 
 .filaTabla{
     border: inset;
@@ -25,9 +13,7 @@
 }
 
 .formu {
-    
-    max-width: 400px;
-    width: 100%;
+   
     margin: 0 auto;
     position: relative; 
 }
@@ -36,8 +22,12 @@
     background: #F9F9F9;
     padding: 25px;
     margin: 50px 0;
+    width: 100% !important;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); 
 }
+
+.rowAcomodar{width: 50% !important;}
+
 .formu #contact h3, .formu #contact .h3 {
     display: block;
     font-size: 30px;
@@ -156,6 +146,19 @@ button[type="alerta"]:active {
 .formu :-ms-input-placeholder {
     color: #888; 
 }
+.contenedorTabla {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    grid-gap: 2em;
+    gap: 2em;
+    align-items: baseline;
+    justify-content: center;
+    max-width: 900px;
+    width: 100%;
+    position: relative; 
+}
 
 .listaCarrito {
     border-radius: 10px;
@@ -164,4 +167,13 @@ button[type="alerta"]:active {
     padding: 25px;
     margin: 50px 0;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); 
+}
+.vacioComprado{
+    padding: 300px;
+}
+.contenedorListaOrden{
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
 }

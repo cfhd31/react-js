@@ -16,26 +16,14 @@ const Item = ({prod}) => {
                     <h5 className="card-title">Nave: {prod.nombre}</h5>
                     <div className="card-text">
                         <p className="text-secundary"> <strong>Precio:</strong> {prod.precio}M ISK</p>
-
-                       
+                  
                         { prod.stock <= 0?
                           <h4>Sin Stock</h4>
-                          :<Link to={`/detalle/${prod.id}`} className="text-primary">
-                            <button>Detalle</button>
+                          :
+                            <Link to={`/detalle/${prod.id}`} className="text-primary ">
+                                <button className="buttonDetalle">Detalle</button>
                             </Link>
                         }
-                        <div>
-                            {/* <div onClick={()=>onAdd}>
-                                {
-                                    inputType === 'input'?
-                                    <ItemCount stock={prod.stock} initial="1" onAdd={onAdd}/>
-                                    :
-                                    <Link to="/cart" className="pretext botonComprar">Ir al Carrito</Link>
-                                }
-
-                                
-                            </div> */}
-                        </div>
                     </div>
                 </div>
             </div>
