@@ -1,12 +1,12 @@
 import {useState} from 'react'
-import {useCartContext} from '../../context/CartContext'
 import {Link} from "react-router-dom"
+import {useCartContext} from '../../context/CartContext'
 import {getFirestore} from '../../services/getFirestore'
 import firebase from "firebase"
 import CartItem from './CartItem'
+import Formulario from './Formulario'
 import 'firebase/firestore'
 import './cart.css'
-import Formulario from './Formulario'
 
 export default function Cart() {
     const {cartList, borrarTodo, formData, setFormData, precioTotal} = useCartContext()
@@ -28,7 +28,6 @@ export default function Cart() {
             return {id, nombre, precio, cantidad}
         })
 
-      
 		const dbQuery = getFirestore()
 		dbQuery
 			.collection("orders").add(orden)
@@ -107,10 +106,10 @@ export default function Cart() {
                 {orderId!==''?
                 <div className="finalCompra">
                     <h3>Gracias por su compra</h3>
-                    <h5>El id de su orden es : {orderId}</h5>
+                    <h5>El id de su orden es: {orderId}</h5>
                 </div>
                 :
-                <div className="">
+                <div>
                     <h2>Tu carrito está vacío</h2> 
                     <Link to ="/" className = "waves-effect waves-light btn"> Ir a Inicio </Link>
                 </div>}

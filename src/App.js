@@ -1,11 +1,10 @@
 import {BrowserRouter , Switch, Route} from 'react-router-dom'
 import ItemListContainer from "./components/container/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/container/ItemDetailContainer/ItemDetailContainer";
-import { NavBar } from './components/NavBar';
+import { NavBar } from './components/navbar/NavBar';
 import Cart from './components/Cart/Cart';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Publicidad from './components/publicidad/Publicidad';
 import CartContextProvider from './context/CartContext';
 import Footer from './components/Footer';
 const App = () => {   
@@ -14,7 +13,6 @@ const App = () => {
         <div className="App"  >
             <CartContextProvider>
                 <BrowserRouter>
-                    <Publicidad/>
                     <NavBar />
                     
                     <Switch>

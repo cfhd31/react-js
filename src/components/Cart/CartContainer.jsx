@@ -1,10 +1,7 @@
-import {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom';
-import ItemDetail from './ItemDetail'
-import { getFirestore } from '../../../services/getFirestore';
-import Loading from '../../Loading';
+import React from 'react'
+import Cart from './Cart'
 
-const ItemDetailContainer = () => {
+export default function CartContainer() {
     const [productIndiv, setProdIndiv] = useState({})
     const {id} = useParams()
     const [loading, setLoading] = useState(true)
@@ -31,9 +28,7 @@ const ItemDetailContainer = () => {
         <Loading /> ) : (
 
         <div>
-            <ItemDetail prod={productIndiv} /> 
+            <Cart prod={productIndiv} /> 
         </div>
     )
 }
-
-export default ItemDetailContainer

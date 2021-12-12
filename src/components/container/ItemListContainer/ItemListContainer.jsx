@@ -8,7 +8,6 @@ import './itemListContainer.css'
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-  
     const { id } = useParams()
 
     useEffect(() => {
@@ -28,7 +27,7 @@ const ItemListContainer = () => {
       
     return loading ? (
         <Loading /> ) : (
-        
+
         <div className=" container">
             <div className="acomodar row justify-content-md-center">   
                 <ItemList product={products} />  

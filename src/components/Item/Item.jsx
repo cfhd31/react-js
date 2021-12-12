@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom'
 import './item.css'
 
 const Item = ({prod}) => {
-
-  
     return (
         <div className="catalogo">
             <div className="react-reveal card bg-dark">
@@ -18,7 +16,7 @@ const Item = ({prod}) => {
                         <p className="text-secundary"> <strong>Precio:</strong> {prod.precio}M ISK</p>
                   
                         { prod.stock <= 0?
-                          <h4>Sin Stock</h4>
+                          <h4 className="text-danger">Sin Stock</h4>
                           :
                             <Link to={`/detalle/${prod.id}`} className="text-primary ">
                                 <button className="buttonDetalle">Detalle</button>

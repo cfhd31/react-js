@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { CartWidget } from './Cartwidget'
-import '../main.css'
-import '../../node_modules/bootstrap/dist/css/bootstrap-utilities.min.css';
+import '../../main.css'
+import '../../../node_modules/bootstrap/dist/css/bootstrap-utilities.min.css';
 
 export const NavBar = () => {   
     return(
